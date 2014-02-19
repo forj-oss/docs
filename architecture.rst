@@ -1,0 +1,17 @@
+.. seqdiag::
+
+    seqdiag {
+      // edge label
+      A -> B [label = "call"];
+      A <- B [label = "return"];
+      
+      // diagonal edge
+      A -> B [diagonal, label = "diagonal edge"];
+      A <- B [diagonal, label = "return diagonal edge"];
+      
+      // color of edge
+      A -> B [label = "colored label", color = red];
+      
+      // failed edge
+      A -> B [label = "failed edge", failed];
+    }
