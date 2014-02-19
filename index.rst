@@ -7,7 +7,7 @@
 
 Welcome to Forj's documentation!
 ================================
-.
+
 Contents:
 
 .. toctree::
