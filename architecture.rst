@@ -1,3 +1,6 @@
+Architecture
+============
+
 .. seqdiag::
 
     seqdiag {
