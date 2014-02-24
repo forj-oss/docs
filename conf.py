@@ -120,7 +120,7 @@ html_theme = 'default'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = 'img/forj_logo.png'
+#html_logo = '/img/forj_logo.png'
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -331,4 +331,4 @@ epub_exclude_files = ['search.html']
 #epub_use_index = True
 
 # -- Additional Settings -------------------------------------------------------
-execfile('./common_conf.py')
+extensions += ['sphinxcontrib.seqdiag']
