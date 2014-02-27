@@ -1,0 +1,2 @@
+.. _developer guide: http://docs.forj.io/page/dev/intro.html
+.. _community: http://ea.forj.io/community/

@@ -1,4 +1,6 @@
+.. _devguide:
+
 Develop for Forj
 ================
 
-Still thinking...
+Coming soon...

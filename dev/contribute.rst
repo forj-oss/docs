@@ -1,4 +1,4 @@
 Contributing
-================
+============
 
-Still thinking...
+Coming soon...
