@@ -12,7 +12,7 @@ Learn more on the processes that are used by the Openstack project here:
 
 Tools and features
 ------------------
-In its current version, the score contains the following features:
+In its current version, the Openstack score contains the following features:
 
 * Puppet master automation, create new modules and promote them in the :term:`forj-config` project.
 * Gerrit/git services for revision control and change management.

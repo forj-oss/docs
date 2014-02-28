@@ -1,0 +1,810 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "conf.py",
+			"settings":
+			{
+				"buffer_size": 10343,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "requirements.txt",
+			"settings":
+			{
+				"buffer_size": 22,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Doc outline (ref: http://docs.writethedocs.org/en/latest/writing/beginners-guide-to-docs/)\n\n\nUser guide\n- What is Forj\n	- Example at the top\n- Organization & Philosophy\n	how the project is structured, where everything lives, how the code is written, the kinds of tests required, and what level of performance vs simplicity to aim for. \n- Install\n- Member role\n- Administrator role\n	- Configure\n	- Operate\n	- Projects\n	- Users\n- How to get support\n- FAQ\n- License\n\nDeveloper guide\n- Link to code and issue tracker\n- Contributing\n	1. Check for open issues or open a fresh issue to start a discussion around a feature idea or a bug. There is a Contributor Friendly tag for issues that should be ideal for people who are not very familiar with the codebase yet.\n	2. Fork the Forj repository on Github to start making your changes.\n	3. Write a test which shows that the bug was fixed or that the feature works as expected.\n	4. Send a pull request and bug the maintainer until it gets merged and published. :) Make sure to add yourself to CONTRIBUTORS.txt.\n- FAQS\n\n",
+			"settings":
+			{
+				"buffer_size": 1059,
+				"line_ending": "Windows",
+				"name": "Doc outline (ref: http://docs.writethedocs.org/en/"
+			}
+		},
+		{
+			"file": "user/intro.rst",
+			"settings":
+			{
+				"buffer_size": 1414,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "links.txt",
+			"settings":
+			{
+				"buffer_size": 104,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "glossary.rst",
+			"settings":
+			{
+				"buffer_size": 1464,
+				"line_ending": "Windows",
+				"name": ".. _glossary:"
+			}
+		},
+		{
+			"file": "user/install.rst",
+			"settings":
+			{
+				"buffer_size": 290,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "user/admin.rst",
+			"settings":
+			{
+				"buffer_size": 606,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "user/kits/openstack.rst",
+			"settings":
+			{
+				"buffer_size": 1979,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "help.rst",
+			"settings":
+			{
+				"buffer_size": 167,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "license.rst",
+			"settings":
+			{
+				"buffer_size": 116,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "index.rst",
+			"settings":
+			{
+				"buffer_size": 1696,
+				"line_ending": "Windows",
+				"name": "ind"
+			}
+		},
+		{
+			"file": "architecture.rst",
+			"settings":
+			{
+				"buffer_size": 439,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/intro.rst",
+			"settings":
+			{
+				"buffer_size": 64,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/contribute.rst",
+			"settings":
+			{
+				"buffer_size": 41,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/devenv.rst",
+			"settings":
+			{
+				"buffer_size": 63,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/faq.rst",
+			"settings":
+			{
+				"buffer_size": 23,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/sphinx.sublime-build",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 146.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/E/Users/OLJA/Documents/GitHub/docs/architecture.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/user/admin.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/user/install.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/intro.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/dev/intro.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/contents.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/license.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/help.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/dev/faq.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/dev/devenv.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/dev/contribute.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/user/kits/openstack.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/test.rst",
+		"/C/Users/OLJA/AppData/Roaming/Sublime Text 2/Packages/User/sphinx.sublime-build",
+		"/C/Users/OLJA/AppData/Roaming/Sublime Text 2/Packages/User/buildonsave.py",
+		"/E/Users/OLJA/Documents/GitHub/docs/common_conf.py",
+		"/E/Users/OLJA/Documents/GitHub/docs/docs.sublime-project",
+		"/E/Temp/AGM.REST.Test.bat",
+		"/D/Autorun.inf",
+		"/C/Users/OLJA/.ssh/config",
+		"/E/code/helloworld.app/helloworld.py",
+		"/E/Users/OLJA/Documents/code/hpit116801.ctf/AdminTools/trunk/code/QCSense.Extractor/QCSense.Extractor/bin/Release/QCSense.Extractor.exe.config",
+		"/E/Users/OLJA/Documents/GitHub/docs/conf.py",
+		"/C/Users/OLJA/.VirtualBox/VirtualBox.xml",
+		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/cloud.ppk/migmaqer.pem",
+		"/C/Users/OLJA/AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/7Q9PC8SO/irc.backup",
+		"/E/Users/OLJA/Documents/code/hpit116801.ctf/AdminTools/trunk/code/QCSense.Extractor/QCSense.Extractor/app.config",
+		"/C/Users/OLJA/workspace/CDK-learn/python/README.md",
+		"/E/code/helloworld.app/main.py",
+		"/E/code/helloworld.app/main.rb",
+		"/C/Users/OLJA/workspace/CDK-learn/heat/wordpress-via-puppet-client.json",
+		"/C/Users/OLJA/workspace/CDK-learn/stackato/notes.md",
+		"/C/Users/OLJA/workspace/CDK-learn/ERB/README.md",
+		"/C/Users/OLJA/.ssh/gerrit_keys",
+		"/C/Users/OLJA/.ssh/gerrit_keys.pub",
+		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/cloud.ppk/nova-USWest-AZ1.pem",
+		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/Techncrunch.fake.Forj/Mobile World Congress - Barcelona, Spain - February 2014  TechCrunch.htm",
+		"/C/Program Files/HP/HP ALM Synchronizer/bin/checkQcConnectivity.vbs",
+		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/pic/WEB/hps-euro-w01-regular-ttf/fonts.css",
+		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/pic/WEB/hps-euro-w01-regular-ttf/demo.html",
+		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/pic/WEB/HPSimplified/fonts.css",
+		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/pic/WEB/HPSimplified/demo.html",
+		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/cloud.ppk/nova-USWest-AZ3.pem"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"logo",
+			"natasha",
+			"2013"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "conf.py",
+					"settings":
+					{
+						"buffer_size": 10343,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								913,
+								913
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "requirements.txt",
+					"settings":
+					{
+						"buffer_size": 22,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"settings":
+					{
+						"buffer_size": 1059,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								757,
+								757
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Doc outline (ref: http://docs.writethedocs.org/en/",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "user/intro.rst",
+					"settings":
+					{
+						"buffer_size": 1414,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1414,
+								1414
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "links.txt",
+					"settings":
+					{
+						"buffer_size": 104,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								104,
+								104
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "glossary.rst",
+					"settings":
+					{
+						"buffer_size": 1464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								534,
+								534
+							]
+						],
+						"settings":
+						{
+							"auto_name": ".. _glossary:",
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "user/install.rst",
+					"settings":
+					{
+						"buffer_size": 290,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								268,
+								268
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "user/admin.rst",
+					"settings":
+					{
+						"buffer_size": 606,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								261,
+								261
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "user/kits/openstack.rst",
+					"settings":
+					{
+						"buffer_size": 1979,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								585,
+								585
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "help.rst",
+					"settings":
+					{
+						"buffer_size": 167,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								167,
+								167
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "license.rst",
+					"settings":
+					{
+						"buffer_size": 116,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								116,
+								116
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 11,
+					"file": "index.rst",
+					"settings":
+					{
+						"buffer_size": 1696,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1498,
+								1498
+							]
+						],
+						"settings":
+						{
+							"auto_name": "ind",
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 495.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "architecture.rst",
+					"settings":
+					{
+						"buffer_size": 439,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								54,
+								54
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 13,
+					"file": "dev/intro.rst",
+					"settings":
+					{
+						"buffer_size": 64,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								64,
+								64
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "dev/contribute.rst",
+					"settings":
+					{
+						"buffer_size": 41,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								41,
+								27
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "dev/devenv.rst",
+					"settings":
+					{
+						"buffer_size": 63,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								63,
+								63
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "dev/faq.rst",
+					"settings":
+					{
+						"buffer_size": 23,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								23
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.490914568606,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

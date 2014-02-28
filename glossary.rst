@@ -30,6 +30,7 @@ Glossary
 
 	Take home
 	Relocation
+	Relocate
 		Process initiated by Maestro to move all the systems of a forge from one location (public cloud, private cloud or on premises systems) to another.
 
 	
