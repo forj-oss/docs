@@ -11,7 +11,7 @@
 			"file": "conf.py",
 			"settings":
 			{
-				"buffer_size": 10343,
+				"buffer_size": 10375,
 				"line_ending": "Windows"
 			}
 		},
@@ -36,7 +36,7 @@
 			"file": "user/intro.rst",
 			"settings":
 			{
-				"buffer_size": 1414,
+				"buffer_size": 1406,
 				"line_ending": "Windows"
 			}
 		},
@@ -44,7 +44,7 @@
 			"file": "links.txt",
 			"settings":
 			{
-				"buffer_size": 104,
+				"buffer_size": 105,
 				"line_ending": "Windows"
 			}
 		},
@@ -52,7 +52,7 @@
 			"file": "glossary.rst",
 			"settings":
 			{
-				"buffer_size": 1464,
+				"buffer_size": 1474,
 				"line_ending": "Windows",
 				"name": ".. _glossary:"
 			}
@@ -69,7 +69,7 @@
 			"file": "user/admin.rst",
 			"settings":
 			{
-				"buffer_size": 606,
+				"buffer_size": 6267,
 				"line_ending": "Windows"
 			}
 		},
@@ -77,7 +77,7 @@
 			"file": "user/kits/openstack.rst",
 			"settings":
 			{
-				"buffer_size": 1979,
+				"buffer_size": 1989,
 				"line_ending": "Windows"
 			}
 		},
@@ -93,7 +93,7 @@
 			"file": "license.rst",
 			"settings":
 			{
-				"buffer_size": 116,
+				"buffer_size": 22,
 				"line_ending": "Windows"
 			}
 		},
@@ -101,16 +101,16 @@
 			"file": "index.rst",
 			"settings":
 			{
-				"buffer_size": 1696,
+				"buffer_size": 1651,
 				"line_ending": "Windows",
 				"name": "ind"
 			}
 		},
 		{
-			"file": "architecture.rst",
+			"file": "dev/architecture.rst",
 			"settings":
 			{
-				"buffer_size": 439,
+				"buffer_size": 41,
 				"line_ending": "Windows"
 			}
 		},
@@ -120,6 +120,15 @@
 			{
 				"buffer_size": 64,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "TODO\n- ea.forj.io\n- Communities: IRC, blogs, \n- Animation for relocation\n- Forj dashboard for operations + \n- Contribution: the process, the sites",
+			"settings":
+			{
+				"buffer_size": 146,
+				"line_ending": "Windows",
+				"name": "TODO"
 			}
 		},
 		{
@@ -171,12 +180,19 @@
 	},
 	"file_history":
 	[
+		"/E/Users/OLJA/Pictures/daftpunktocat-thomas.gif",
+		"/C/Users/OLJA/workspace/maestro/ui/config/views.js",
+		"/C/Users/OLJA/.ssh/config",
+		"/C/Users/OLJA/workspace/maestro/ui/views/layout.ejs",
+		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/cloud.ppk/nova-USWest-AZ2.pem",
+		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/cloud.ppk/nova-USWest-AZ2.ppk",
+		"/E/Users/OLJA/Documents/GitHub/docs/intro.rst",
+		"/E/Users/OLJA/Documents/GitHub/docs/contents.rst",
+		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/cloud.ppk/nova-USWest-AZ3.pem",
 		"/E/Users/OLJA/Documents/GitHub/docs/architecture.rst",
 		"/E/Users/OLJA/Documents/GitHub/docs/user/admin.rst",
 		"/E/Users/OLJA/Documents/GitHub/docs/user/install.rst",
-		"/E/Users/OLJA/Documents/GitHub/docs/intro.rst",
 		"/E/Users/OLJA/Documents/GitHub/docs/dev/intro.rst",
-		"/E/Users/OLJA/Documents/GitHub/docs/contents.rst",
 		"/E/Users/OLJA/Documents/GitHub/docs/license.rst",
 		"/E/Users/OLJA/Documents/GitHub/docs/help.rst",
 		"/E/Users/OLJA/Documents/GitHub/docs/dev/faq.rst",
@@ -190,7 +206,6 @@
 		"/E/Users/OLJA/Documents/GitHub/docs/docs.sublime-project",
 		"/E/Temp/AGM.REST.Test.bat",
 		"/D/Autorun.inf",
-		"/C/Users/OLJA/.ssh/config",
 		"/E/code/helloworld.app/helloworld.py",
 		"/E/Users/OLJA/Documents/code/hpit116801.ctf/AdminTools/trunk/code/QCSense.Extractor/QCSense.Extractor/bin/Release/QCSense.Extractor.exe.config",
 		"/E/Users/OLJA/Documents/GitHub/docs/conf.py",
@@ -212,8 +227,7 @@
 		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/pic/WEB/hps-euro-w01-regular-ttf/fonts.css",
 		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/pic/WEB/hps-euro-w01-regular-ttf/demo.html",
 		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/pic/WEB/HPSimplified/fonts.css",
-		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/pic/WEB/HPSimplified/demo.html",
-		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/cloud.ppk/nova-USWest-AZ3.pem"
+		"/E/Users/OLJA/Documents/PDEIT/Projects/126-HP FORJ/pic/WEB/HPSimplified/demo.html"
 	],
 	"find":
 	{
@@ -224,6 +238,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -231,6 +246,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"highl",
+			"open source",
 			"logo",
 			"natasha",
 			"2013"
@@ -251,7 +268,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -259,15 +276,15 @@
 					"file": "conf.py",
 					"settings":
 					{
-						"buffer_size": 10343,
+						"buffer_size": 10375,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								913,
-								913
+								2865,
+								2865
 							]
 						],
 						"settings":
@@ -275,7 +292,7 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2607.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -336,7 +353,7 @@
 			]
 		},
 		{
-			"selected": 6,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -344,15 +361,15 @@
 					"file": "user/intro.rst",
 					"settings":
 					{
-						"buffer_size": 1414,
+						"buffer_size": 1406,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1414,
-								1414
+								491,
+								491
 							]
 						],
 						"settings":
@@ -360,7 +377,7 @@
 							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 90.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -370,15 +387,15 @@
 					"file": "links.txt",
 					"settings":
 					{
-						"buffer_size": 104,
+						"buffer_size": 105,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								104,
-								104
+								105,
+								105
 							]
 						],
 						"settings":
@@ -396,15 +413,15 @@
 					"file": "glossary.rst",
 					"settings":
 					{
-						"buffer_size": 1464,
+						"buffer_size": 1474,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								534,
-								534
+								1322,
+								1322
 							]
 						],
 						"settings":
@@ -414,7 +431,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 360.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -450,23 +467,24 @@
 					"file": "user/admin.rst",
 					"settings":
 					{
-						"buffer_size": 606,
+						"buffer_size": 6267,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								261,
-								261
+								5166,
+								5166
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1641.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -476,20 +494,21 @@
 					"file": "user/kits/openstack.rst",
 					"settings":
 					{
-						"buffer_size": 1979,
+						"buffer_size": 1989,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								585,
-								585
+								465,
+								465
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage"
+							"syntax": "Packages/RestructuredText/reStructuredText.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -528,15 +547,15 @@
 					"file": "license.rst",
 					"settings":
 					{
-						"buffer_size": 116,
+						"buffer_size": 22,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								116,
-								116
+								22,
+								22
 							]
 						],
 						"settings":
@@ -560,15 +579,15 @@
 					"file": "index.rst",
 					"settings":
 					{
-						"buffer_size": 1696,
+						"buffer_size": 1651,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1498,
-								1498
+								1266,
+								1266
 							]
 						],
 						"settings":
@@ -579,25 +598,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 495.0,
+						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 12,
-					"file": "architecture.rst",
+					"file": "dev/architecture.rst",
 					"settings":
 					{
-						"buffer_size": 439,
+						"buffer_size": 41,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								54,
-								54
+								41,
+								41
 							]
 						],
 						"settings":
@@ -615,7 +634,7 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -646,6 +665,32 @@
 				},
 				{
 					"buffer": 14,
+					"settings":
+					{
+						"buffer_size": 146,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								146,
+								146
+							]
+						],
+						"settings":
+						{
+							"auto_name": "TODO",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
 					"file": "dev/contribute.rst",
 					"settings":
 					{
@@ -671,7 +716,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 16,
 					"file": "dev/devenv.rst",
 					"settings":
 					{
@@ -697,7 +742,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 17,
 					"file": "dev/faq.rst",
 					"settings":
 					{
@@ -771,14 +816,14 @@
 		"rows":
 		[
 			0.0,
-			0.490914568606,
+			0.488900101067,
 			1.0
 		]
 	},
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 100.0
+		"height": 294.0
 	},
 	"replace":
 	{

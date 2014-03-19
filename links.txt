@@ -1,2 +1,6 @@
 .. _developer guide: http://docs.forj.io/page/dev/intro.html
 .. _community: http://ea.forj.io/community/
+.. _issue list: https://github.com/organizations/forj/dashboard/issues
+.. _Forj's Gerrit: https://review.forj.io/
+.. _Forj's documentation repository: http://github.com/forj/docs
+.. _Sphinx: http://sphinx-doc.org/
