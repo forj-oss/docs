@@ -3,7 +3,8 @@
 
 Welcome to Forj!
 ================
-Forj provides software developers with a rapid, flexible and open continuous integration (CI)/ continuous delivery development platform. This environment is often referred to as a software forget which provides a collaborative platform for software development.
+Forj provides software developers with a rapid, flexible and open continuous integration (CI)/ continuous delivery (CD) development platform. 
+This environment is often referred to as a software forge which provides a collaborative platform for software development.
 
 Forj provides:
 
