@@ -3,7 +3,7 @@
 
 Welcome to Forj!
 ================
-Forj is a mean for software developers to get a continuous integration (CI) / delivery (CD) tool stack which is working out of the box, and can be installed anywhere in minutes. That kind of environment is often refered to as a `forge <http://en.wikipedia.org/wiki/Forge_(software)>`_, a collaboration platform for software developers.
+Forj provides software developers with a rapid, flexible and open continuous integration (CI)/ continuous delivery development platform. This environment is often referred to as a software forget which provides a collaborative platform for software development.
 
 Forj provides:
 
@@ -11,13 +11,14 @@ Forj provides:
    * Forj has currently one continuous integration stack which mimics the Openstack |trade| Open Source project. We look forward to build a Forj community to add many continuous integration stacks to the catalog.
 * An orchestration and administration component called *Maestro* which provides a uniform way to provision projects and users as well as manage the forge (backup/restore, monitoring, updates).
 
-In summary, it goes like this:
+Overview: 
+
+.. image:: /img/forjoverview.png
+
+Forj's flow
 
 .. figure:: /img/intro.png
 
-   Forj's flow
-
-Still here? Let's dig further.
 The "user guide" section is relevant for Forj users as well as forge administrators and users.
 The "developer guide" is for anyone who wants to contribute to the Forj project and become a "Forjer".
 
