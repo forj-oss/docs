@@ -28,37 +28,47 @@ Projects
 Adding a new project in gerrit
 ******************************
 
-* add an acl file (to the acls/production directory below) by using cookiecutter.config as an example found in the below path (i.e. make a copy)::
+There is two ways to add a new project into gerrit::
 
-	[forj-config.git] / modules / runtime_project / files / gerrit / acls / templates /  cookiecutter.config
+1. Using maestro UI
 
-* place cookiecuttern.config in directory (projectname should match the name of the project): (note: change the 'cookiecutter-core' to whatever group name you would like to use in your project: example: my-new-proj1-core)::
+	* Enter to maestro UI and sign-in if needed, so you become the administrator and you can add projects::
 
-	[forj-config.git] / modules / runtime_project / files / gerrit / acls / production / projectname.config
+	* Go to the projects tab then add projects icon, finally set the name for you project and wait ~5 minutes until the change is propagated to gerrit::
 
-* to create project edit file::
+2. Using ACLs files
 
-	[forj-config.git] / modules / runtime_project / templates / gerrit / config / production / review.projects.yaml.erb
+	* add an acl file (to the acls/production directory below) by using cookiecutter.config as an example found in the below path (i.e. make a copy)::
 
-* push changes to your gerrit repo:
+		[forj-config.git] / modules / runtime_project / files / gerrit / acls / templates /  cookiecutter.config
 
-	.. sourcecode:: console
+	* place cookiecuttern.config in directory (projectname should match the name of the project): (note: change the 'cookiecutter-core' to whatever group name you would like to use in your project: example: my-new-proj1-core)::
 
-		$ git add <new-project-acl-file>
-		$ git add review.projects.yaml.erb
-		$ git commit -m "my new project"
-		$ git push 
+		[forj-config.git] / modules / runtime_project / files / gerrit / acls / production / projectname.config
 
-* To learn more on how to configure yaml, see `jeepb <http://ci.openstack.org/jeepyb.html>`_ docs.
-* you can migrate public projects with the upstream option.
-* Projects that are created in gerrit currently have no approach for deletion, but these can be removed from normal users view through acl changes. For more info, please refer to : `rename project <http://ci.openstack.org/gerrit.html#renaming-a-project>`_ or remove project
+	* to create project edit file::
+
+		[forj-config.git] / modules / runtime_project / templates / gerrit / config / production / review.projects.yaml.erb
+
+	* push changes to your gerrit repo:
+
+		.. sourcecode:: console
+
+			$ git add <new-project-acl-file>
+			$ git add review.projects.yaml.erb
+			$ git commit -m "my new project"
+			$ git push 
+
+	* To learn more on how to configure yaml, see `jeepb <http://ci.openstack.org/jeepyb.html>`_ docs.
+	* you can migrate public projects with the upstream option.
+	* Projects that are created in gerrit currently have no approach for deletion, but these can be removed from normal users view through acl changes. For more info, please refer to : `rename project <http://ci.openstack.org/gerrit.html#renaming-a-project>`_ or remove project
 
 
 Adding a new jenkins job and configure Zuul for a given project in gerrit
 *************************************************************************
 Zull configuration consist of 4 basic parts.
 
-1. update **site.pp** to include any new templates that will be used for the job
+1. update **hieradata** to include any new templates that will be used for the job in **runtime_project/files/hiera/hieradata/Debian/nodetype/ci.yaml**
 
 	* this is only needed if you need a new compiler option, or new tool that will not exist on the build server.
 
@@ -68,15 +78,9 @@ Zull configuration consist of 4 basic parts.
 
 		.. sourcecode:: yaml
 
-			class { cdk_project::jenkins:
-				vhost_name                        => $node_vhost,
-				jenkins_jobs_password             => ,        
-				job_builder_configs               => [  'fortify-scan.yaml',
-				                                       'pet-clinic.yaml',
-				                                       'publish-to-stackato.yaml',
-				                                       '<new_job_template_name>.yaml'
-				                                     ],
-			}
+			cdk_project::jenkins::job_builder_configs:
+				- 'tutorials.yaml'
+				- '<new_job_template_name>.yaml'
 
 2. configure the new template into **runtime_project/templates/jenkins_job_builder/config/**
 
@@ -91,30 +95,29 @@ Zull configuration consist of 4 basic parts.
 	.. sourcecode:: yaml
 
 		projects:
-		 - name: pet-clinic
+		 - name: tutorials
 		   check:
-		     - pet-clinic-maven-package
-		     - pet-clinic-fortify-scan
+		     - tutorials-flake8
 		   gate:
-		     - pet-clinic-maven-package
-		     - pet-clinic-<new_job_name>
+		     - tutorials-flake8
+		   post:
+		     - puppet-apply-all-nodes
 		   release:
-		     - pet-clinic-publish-to-stackato
+		     - tutorials-flake8
 
 
 4. add the project section to **runtime_project/files/jenkins_job_builder/config/projects.yaml**
 
-	* this will define the jobs to be created in jenkins, job names will be mapped to buiders by zuul. The name must match the job-template layout file (line 2 in the jenkins_job_builder folder).
+	* this will define the jobs to be created in jenkins, job names will be mapped to buiders by zuul. The "name" must match the job-template layout file (line 2 in the jenkins_job_builder file), and the "git_project" must match with the name of your project in gerrit.
 
 	.. sourcecode:: yaml
 
 		projects:
-		   name: pet-clinic
+		   name: tutorials
+		   git_project: tutorials
 		   branch: master
 		   jobs:
-		    - '{name}-maven-package'
-		    - '{name}-fortify-scan'
-		    - '{name}-publish-to-stackato'
+		    - '{name}-flake8'
 		    - '{name}-<new_job_name>'
 
 Once this is done, you will need to push the changes to gerrit, verify and submit. Next the eroplus box will need to run puppet cycle, or puppet agent -t to get the new runtime_project udpates. Finally the ci server will need to run a puppet cycle or puppet agent -t so that the job builder can setup the job.
@@ -142,17 +145,17 @@ Remove a project in gerrit
 	.. sourcecode:: sql
 
 		select * from account_project_watches;
-		delete from account_project_watches where project_name = 'pet-clinic-2'
+		delete from account_project_watches where project_name = 'tutorials-2'
 		delete changes
-		select * from changes where dest_project_name = 'pet-clinic-2';
-		delete from changes where dest_project_name = 'pet-clinic-2';
+		select * from changes where dest_project_name = 'tutorials-2';
+		delete from changes where dest_project_name = 'tutorials-2';
 
 * Remove the repo from disk.
 
 	.. sourcecode:: console
 
-		$ rm -rf /var/lib/git/pet-clinic-2.git
-		$ rm -rf /home/gerrit2/review_site/git/pet-clinic-2.git/
+		$ rm -rf /var/lib/git/tutorials-2.git
+		$ rm -rf /home/gerrit2/review_site/git/tutorials-2.git/
 
 .. Note:: this should be done on all replicas
 
