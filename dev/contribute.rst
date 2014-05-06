@@ -10,7 +10,7 @@ Consider contributing code, documentation and :term:`blueprint` (fixes to existi
 
 Forj's code development process mimics the one used by the OpenStack project. If you are an OpenStack contributor, you will feel at home.
 
-.. figure:: /img/contribute.code.png
+.. figure:: /img/contribute_code.png
 
 For more information on this process, please refer to the `Openstack's Gerrit workflow <https://wiki.openstack.org/wiki/Gerrit_Workflow>`_.
 
@@ -25,7 +25,7 @@ Documentation
 *************
 Documentation is also an open source project. The sources are available from the main Forj repository on Github. We encourage you to make improvements, whether big or small, to this documentation.
 
-.. figure:: /img/contribute.doc.png
+.. figure:: /img/contribute_doc.png
 
 Useful links:
 
