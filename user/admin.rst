@@ -1,175 +1,50 @@
 Administration
 ==============
 
-You administer a forge through the Maestro user interface. This includes:
+You administer a forge through the Maestro user interface.
 
-* General forge administration (health, backup & restore, :term:`take home`)
+.. image:: /img/maestro.jpg
+
+This includes:
+
+* General forge administration (health, backup & restore)
 * Project administration
 * Tool administration 
 * User administration
 
-.. note::
-	Currently, the Maestro user interface is not completed. The configuration is done through a special project on Gerrit called :term:`forj-config`.
+Tools
+-----
+The list of tools that you see in the Maestro User Interface depends on the :term:`blueprint`. Each box, which represents a tool exposed can be clicked to open the tool itself.
 
-Pre-requisite
--------------
+.. image:: /img/tool.jpg
 
-* Checking out the forj-config project
-	Steps for how to checkout the forj-config project on a forge. Each forge has its own forj-config project. 
-	The following steps can be used to checkout a project but before performing this action, make sure you ssh keys are added to the server. To approve a change, make sure your user account is a member of the forj-core group.
-
-* Assigning someone to be a verifier for forj-config project
-	When there is no jenkins/zuul functionality on the forj-config project, it's sometimes necessary to verify changes manually. This can be performed by updating the group membership for Continuous Integration Tools group in gerrit.
-
+* Admin: if you are an administrator of the forge, tool which have one will expose an additional "Admin" link, to jump to administration interface of that tool.
+* Workload: provides detail on the tool workload, such as CPU, Memory or storage consumption of the tool, as well as tool specific metrics (eg commits / day)
+* Backup: tool specific backup and restore operations
 
 Projects
 --------
-
-Adding a new project in gerrit
-******************************
-
-There is two ways to add a new project into gerrit::
-
-1. Using maestro UI
-
-	* Enter to maestro UI and sign-in if needed, so you become the administrator and you can add projects::
-
-	* Go to the projects tab then add projects icon, finally set the name for you project and wait ~5 minutes until the change is propagated to gerrit::
-
-2. Using ACLs files
-
-	* add an acl file (to the acls/production directory below) by using cookiecutter.config as an example found in the below path (i.e. make a copy)::
-
-		[forj-config.git] / modules / runtime_project / files / gerrit / acls / templates /  cookiecutter.config
-
-	* place cookiecuttern.config in directory (projectname should match the name of the project): (note: change the 'cookiecutter-core' to whatever group name you would like to use in your project: example: my-new-proj1-core)::
-
-		[forj-config.git] / modules / runtime_project / files / gerrit / acls / production / projectname.config
-
-	* to create project edit file::
-
-		[forj-config.git] / modules / runtime_project / templates / gerrit / config / production / review.projects.yaml.erb
-
-	* push changes to your gerrit repo:
-
-		.. sourcecode:: console
-
-			$ git add <new-project-acl-file>
-			$ git add review.projects.yaml.erb
-			$ git commit -m "my new project"
-			$ git push 
-
-	* To learn more on how to configure yaml, see `jeepb <http://ci.openstack.org/jeepyb.html>`_ docs.
-	* you can migrate public projects with the upstream option.
-	* Projects that are created in gerrit currently have no approach for deletion, but these can be removed from normal users view through acl changes. For more info, please refer to : `rename project <http://ci.openstack.org/gerrit.html#renaming-a-project>`_ or remove project
-
-
-Adding a new jenkins job and configure Zuul for a given project in gerrit
-*************************************************************************
-Zull configuration consist of 4 basic parts.
-
-1. update **hieradata** to include any new templates that will be used for the job in **runtime_project/files/hiera/hieradata/Debian/nodetype/ci.yaml**
-
-	* this is only needed if you need a new compiler option, or new tool that will not exist on the build server.
-
-	* configure in the following section ci-node -> class cdk_project::jenkins -> job_builder_configs. 
-
-	Example:
-
-		.. sourcecode:: yaml
-
-			cdk_project::jenkins::job_builder_configs:
-				- 'tutorials.yaml'
-				- '<new_job_template_name>.yaml'
-
-2. configure the new template into **runtime_project/templates/jenkins_job_builder/config/**
-
-	* a pre-existing template file can be used to describe the builders for the job, or a new one can be created
-
-	* pre-existing macros can be found in runtime_project/files/jenkins_job_builder/config/macros.yaml
-
-3. update layout.yaml in **runtime_project/files/zuul/config/production/layout.yaml**
-
-	* the projects section should be updated with the new project and gates, along with jobs that will be executed from projects.yaml, example:
-
-	.. sourcecode:: yaml
-
-		projects:
-		 - name: tutorials
-		   check:
-		     - tutorials-flake8
-		   gate:
-		     - tutorials-flake8
-		   post:
-		     - puppet-apply-all-nodes
-		   release:
-		     - tutorials-flake8
-
-
-4. add the project section to **runtime_project/files/jenkins_job_builder/config/projects.yaml**
-
-	* this will define the jobs to be created in jenkins, job names will be mapped to buiders by zuul. The "name" must match the job-template layout file (line 2 in the jenkins_job_builder file), and the "git_project" must match with the name of your project in gerrit.
-
-	.. sourcecode:: yaml
-
-		projects:
-		   name: tutorials
-		   git_project: tutorials
-		   branch: master
-		   jobs:
-		    - '{name}-flake8'
-		    - '{name}-<new_job_name>'
-
-Once this is done, you will need to push the changes to gerrit, verify and submit. Next the eroplus box will need to run puppet cycle, or puppet agent -t to get the new runtime_project udpates. Finally the ci server will need to run a puppet cycle or puppet agent -t so that the job builder can setup the job.
-
-.. Note:: More info on zuul: `http://wiki.cdkdev.org/w/index.php/Zuul <http://wiki.cdkdev.org/w/index.php/Zuul>`_
-
-
-Remove a project in gerrit
-**************************
-
-* Stop gerrit:
-
-	.. sourcecode:: console
-
-		$ sudo service gerrit stop
-
-* start the gsql client on local admin bash shell:
-
-	.. sourcecode:: console
-
-		$ java -jar /home/gerrit2/review_site/bin/gerrit.war gsql -d /home/gerrit2/review_site
-
-* remove entries from table account_project_watches
-
-	.. sourcecode:: sql
-
-		select * from account_project_watches;
-		delete from account_project_watches where project_name = 'tutorials-2'
-		delete changes
-		select * from changes where dest_project_name = 'tutorials-2';
-		delete from changes where dest_project_name = 'tutorials-2';
-
-* Remove the repo from disk.
-
-	.. sourcecode:: console
-
-		$ rm -rf /var/lib/git/tutorials-2.git
-		$ rm -rf /home/gerrit2/review_site/git/tutorials-2.git/
-
-.. Note:: this should be done on all replicas
-
-* Start gerrit back up
-
-	.. sourcecode:: console
-
-		$ service gerrit start
-
-
-Tools
------
-Documentation in progress.
+The notion of projects varies from blueprint to blueprint. In the :ref:`"A la OpenStack" <openstack-blueprint>` blueprint, the project creation process from OpenStack infra is automated and exposed with the Maestro UI. 
+Please refer to the appropriate section of project management for the blueprint you use.
 
 Users
 -----
-Documentation in progress.
+Like projects, users may be managed differently from blueprint to blueprint. 
+
+.. note::
+	Implementation is in progress.
+
+Backup/Restore
+--------------
+Maestro provides backup and restore capabilities for the forge. There is the notion of a forge wide backup/restore process, as well as per tool backup/restore.
+The forge wide backup status and restore operation is available to administrators through Maestro UI.
+
+.. note::
+	Implementation is in progress. While backups are implemented, the status, and the ability to restore is not exposed in Maestro UI.
+
+Monitoring
+----------
+Each blueprint can consume monitoring services and expose jauges in the Maestro UI.
+
+.. note::
+	Implementation is in progress.

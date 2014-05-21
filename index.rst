@@ -1,32 +1,27 @@
 .. image:: /img/forj_logo.png
 .. include:: <isonum.txt>
 
-Welcome to Forj!
-================
+Forj documentation
+==================
 Forj provides software developers with a rapid, flexible and open continuous integration (CI)/ continuous delivery (CD) development platform. 
-This environment is often referred to as a software forge which provides a collaborative platform for software development.
+This environment is often referred to as a software forge, even though, at the time the name was invented, the notion of CI and CD was not as prevalent.
 
 Forj provides:
 
 * A collection of pre-integrated continuous integration and delivery tool stacks called blueprints
-   * Forj has currently one continuous integration stack which mimics the Openstack |trade| Open Source project. We look forward to build a Forj community to add many continuous integration stacks to the catalog.
+   * Forj has currently one continuous integration stack which mimics the OpenStack |trade| Open Source project. We look forward to build a Forj community to add many continuous integration stacks to the catalog.
 * An orchestration and administration component called *Maestro* which provides a uniform way to provision projects and users as well as manage the forge (backup/restore, monitoring, updates).
 
-Example of a FORJ blueprint selection flow:
+See the `Forj web site <http://www.forj.io>`_ for more information, use cases and flows.
 
-1. Developer selects a 'blueprint' from the FORJ portal. For this example, the developer may select the "A la" Openstack software forge blueprint (development kit). 
-   This blueprint includes standard open source tools for configuration management, code review, and continuous integration (automated builds and testing). 
-   It also includes the Maestro tool explained above.
-2. A 'software forge' is provisioned and hosted on FORJ's public cloud environment.
-3. At some point the 'software forge' may be relocated to a separate public could, private cloud or 'on premises' location.
+.. image:: /img/forj_io.jpg
 
+Documentation
+=============
+The documentation has 2 parts:
 
-.. image:: /img/forjflow.jpg
-
-
-
-The "user guide" section is relevant for Forj users as well as forge administrators and users.
-The "developer guide" is for anyone who wants to contribute to the Forj project and become a "Forjer".
+* The "user guide" section is relevant for Forj users as well as forge administrators and users.
+* The "developer guide" is for anyone who wants to contribute to the Forj project.
 
 User guide
 ----------
