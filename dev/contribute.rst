@@ -54,19 +54,19 @@ Community members should note that the information submitted via the `IRC`_, `ma
 How do I contribute?
 ********************
 
-1. Join the Community 
+1. Join the Community: 
 Joining allows you to contribute code, participate in `IRC`_ and `mailing list`_, report and track bugs and receive updates on the latest Forj developments.
 
-2. Decide Your Purpose 
+2. Decide Your Purpose: 
 Do you want to add a feature to Forj, contribute to a blueprint or enhance the documentation?
 
-3. Get Familiar with the Components 
+3. Get Familiar with the Components: 
 Once you determined your activity, check out our repos on `Forj's Gerrit`_ or `GitHub`_ to review our components and READ ME files. 
 
-4. Discuss Your Idea 
+4. Discuss Your Idea: 
 Before you even start updating components, you should post your ideas on the `IRC`_ or `mailing list`_. You can find out if someone else is working on a similar idea or community members can help you refine your concept.
 
-5. Review the Governance Model 
+5. Review the Governance Model: 
 Follow our process for how to get your contribution accepted as detailed under our Governance Model.
 
 
