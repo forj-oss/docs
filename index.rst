@@ -34,6 +34,7 @@ User guide
    user/install
    user/admin
    user/kits/openstack
+   user/kits/tuleap
    help
    glossary
    license
