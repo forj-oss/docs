@@ -13,13 +13,12 @@ To help with understanding what's required to contribute to Forj, we are providi
 
 * The Project has selected the Apache 2.0 license, popular for its permissive and flexible properties, while still encouraging a collaborative community.
 * The Project has selected an approach to contributions inspired by the popular Linux Developer "Certificate of Origin". This approach makes it simple for new contributors to get started, and avoids bureaucracy in tracking contributions and contributors. 
-* To indicate accordance, each individual contribution to the Project is signed off by the developer, using his or her real name and email address in the format below: 
+* To indicate accordance, each contributor must validate accordance on `Forj's Gerrit`_:
+	* Go to `Forj's Gerrit`_ then to Settings / Agreements / New Contributor Agreement / DCO
+	* Review carefully the agreement, if you agree, enter "I AGREE" in the box, and click "Submit agreement"
 
-::
 
-	Forj-DCO-1.0-Signed-off-by: John Doe <johnd@acme.com> 
-
-Signing off means that you state that the following are true of your contribution:
+Agreeing to the DCO means that you state that the following are true of your contribution:
 
 * I created this contribution/change and have the right to submit it to the Project; or
 * I created this contribution/change based on a previous work with a compatible open source license; or
@@ -32,7 +31,7 @@ Signing off means that you state that the following are true of your contributio
  You must confirm the nature of your contribution with the actual certificate and license language.
  
 Why are we including the final paragraph which is not part of the Linux DCO?
-***************************************************************************
+****************************************************************************
 
 Under the Apache Software License v2.0, each contributor provides a copyright license for their contribution to all licensees of the Project. The Project includes some source code files, which originate under other OSI-approved licenses compatible with the Apache license. Modifications to such files will typically be licensed by the Project under the original open source software license.
 
