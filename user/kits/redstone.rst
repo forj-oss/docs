@@ -1,3 +1,5 @@
+..    include:: <isonum.txt>
+
 .. _redstone-blueprint:
 
 Redstone
@@ -6,7 +8,7 @@ Redstone
 
 Summary
 -------
-If you want to develop like the OpenStack project, the "Redstone" :term:`blueprint` is what you are after.
+If you want to develop like the OpenStack |reg| [1]_ project, the "Redstone" :term:`blueprint` is what you are after.
 
 Learn more on the processes that are used by the OpenStack project here:
 
@@ -242,3 +244,6 @@ FAQ
     
     Change the group forj-core to a new group name.  If the group does not exist
     a new one will be created.
+
+
+.. [1] The OpenStack Word Mark and OpenStack Logo are either registered trademarks/service marks or trademarks/service marks of the OpenStack Foundation, in the United States and other countries and are used with the OpenStack Foundation's permission. We are not affiliated with, endorsed or sponsored by the OpenStack Foundation, or the OpenStack community.
