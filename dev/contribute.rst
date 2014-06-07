@@ -38,6 +38,7 @@ We encourage participation by anyone who wants to collaborate on the direction o
 	If you are proposing large code changes or major features, we ask that you discuss it with us first in one of the `IRC`_ or `mailing list`_ - this means any major investment of time on your part is aligned with the overall direction of the Project and that the community can discuss and build consensus before you begin work.
 
 .. _communication-and-process:
+
 Communication and Process
 -------------------------
 The Project uses well known tools and processes to make contributing and communicating straightforward.
@@ -51,6 +52,7 @@ Everyone contributing to the Forj Project or participating on the `IRC`_, `maili
 Community members should note that the information submitted via the `IRC`_, `mailing list`_ or any other communications, resources of the Forj Project will immediately become public information.
 
 .. _how-do-I-contribute:
+
 How do I contribute?
 ********************
 
@@ -71,6 +73,7 @@ Follow our process for how to get your contribution accepted as detailed under o
 
 
 .. _accept-contributions:
+
 How We Accept Contributions
 ***************************
 

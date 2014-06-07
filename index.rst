@@ -33,7 +33,7 @@ User guide
    user/intro
    user/install
    user/admin
-   user/kits/openstack
+   user/kits/redstone
    user/kits/tuleap
    help
    glossary

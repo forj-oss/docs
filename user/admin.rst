@@ -24,7 +24,7 @@ The list of tools that you see in the Maestro User Interface depends on the :ter
 
 Projects
 --------
-The notion of projects varies from blueprint to blueprint. In the :ref:`"A la OpenStack" <openstack-blueprint>` blueprint, the project creation process from OpenStack infra is automated and exposed with the Maestro UI. 
+The notion of projects varies from blueprint to blueprint. In the :ref:`"Redstone" <redstone-blueprint>` blueprint, the project creation process from OpenStack infra is automated and exposed with the Maestro UI. 
 Please refer to the appropriate section of project management for the blueprint you use.
 
 Users

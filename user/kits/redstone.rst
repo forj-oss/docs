@@ -1,20 +1,21 @@
-.. _openstack-blueprint:
+.. _redstone-blueprint:
 
-A la OpenStack
-==============
+Redstone
+========
+.. image:: /img/redstone.png
 
 Summary
 -------
-If you want to develop like the Openstack project, the "a la Openstack" :term:`blueprint` is what you are after.
+If you want to develop like the OpenStack project, the "Redstone" :term:`blueprint` is what you are after.
 
-Learn more on the processes that are used by the Openstack project here:
+Learn more on the processes that are used by the OpenStack project here:
 
-* `How to contribute to Openstack <https://wiki.openstack.org/wiki/How_To_Contribute>`_
-* `Openstack infrastructure team <https://wiki.openstack.org/wiki/InfraTeam>`_
+* `How to contribute to OpenStack <https://wiki.openstack.org/wiki/How_To_Contribute>`_
+* `OpenStack infrastructure team <https://wiki.openstack.org/wiki/InfraTeam>`_
 
 Tools and features
 ------------------
-In its current version, the Openstack score contains the following features:
+In its current version, the Redstone blueprint contains the following features:
 
 * Puppet master automation, create new modules and promote them in the :term:`forj-config` project.
 * Gerrit/git services for revision control and change management.
@@ -43,7 +44,7 @@ You can manage project using Maestro user interface, or by editing the "forj-con
 Adding a new project
 ********************
 
-In the "A la OpenStack" blueprint, projects are managed by code, exactly like the OpenStack infrastructure project. This code, which sits in the forj-config Gerrit repository describes a project and is used to provision the entire chain associated to a project (Gerrit, Jenkins, Zuul).
+In the Redstone blueprint, projects are managed by code, exactly like the OpenStack infrastructure project. This code, which sits in the forj-config Gerrit repository describes a project and is used to provision the entire chain associated to a project (Gerrit, Jenkins, Zuul).
 
 With Maestro User Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,13 +59,13 @@ With Maestro User Interface
 	You can force "Puppet Apply" and speed up the process through the Jenkins "puppet-apply-all-nodes" job, or directly in a terminal session on the Maestro / Puppet master system
 
 
-Using "A la Openstack" mechanisms
+Using "Redstone" mechanisms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You have full control of project creation by checking out the forj-config project and modifying the files that you need.
 
 .. note::
-	In the "A la OpenStack" blueprint, everything is threated as code. You must go through Gerrit mechanisms to edit project configuration. Otherwise, your changes will be dismissed the next time the puppet master runs.
+	In the "Redstone" blueprint, everything is threated as code. You must go through Gerrit mechanisms to edit project configuration. Otherwise, your changes will be dismissed the next time the puppet master runs.
 
 * Check out the forj-config project
 	Each forge has its own forj-config project. Make sure your ssh keys are added to the gerrit server. To approve a change, make sure your user account is a member of the forj-core group.
@@ -203,15 +204,15 @@ Remove a project in gerrit
 User management
 ---------------
 
-In the "A la OpenStack" blueprint, the first user who authenticates to Gerrit and Jenkins become administrator. Then, it is the role of the administrator to add users in the respective tools and projects.
+In the Redstone blueprint, the first user who authenticates to Gerrit and Jenkins become administrator. Then, it is the role of the administrator to add users in the respective tools and projects.
 
-.. _openstack-blueprint-faq:
+.. _redstone-blueprint-faq:
 
 FAQ
 ---
 ... How do I create a new project?
 
-   Creating a new project on a "à la OpenStack" forge means creating a new Gerrit repository.
+   Creating a new project on a redstone forge means creating a new Gerrit repository.
    We use the CI workflow of the forge itself to manage the project creation process.
    Configuration files are modified and updated to provide the administrator of 
    the forge an oportunity to review the commit. Currently we do not provide 

@@ -3,6 +3,8 @@
 Tuleap
 ======
 
+.. image:: /img/tuleap.png
+
 Summary
 -------
 
