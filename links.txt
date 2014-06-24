@@ -1,9 +1,9 @@
 .. _developer guide: http://docs.forj.io/page/dev/intro.html
 .. _community: http://ea.forj.io/community/
-.. _issue list: https://github.com/organizations/forj/dashboard/issues
+.. _issue list: https://github.com/organizations/forj-oss/dashboard/issues
 .. _Forj's Gerrit: https://review.forj.io/
-.. _Github: https://github.com/forj
-.. _Forj's documentation repository: http://github.com/forj/docs
+.. _Github: https://github.com/forj-oss
+.. _Forj's documentation repository: http://github.com/forj-oss/docs
 .. _Sphinx: http://sphinx-doc.org/
 .. _IRC: http://webchat.freenode.net/?channels=forj
 .. _mailing list: https://groups.google.com/forum/#!forum/forj-io

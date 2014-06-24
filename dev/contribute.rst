@@ -131,7 +131,7 @@ The documentation uses "RST" markup language and is generated with Sphinx http:/
 
 To contribute to the documentation
 
-* Clone the docs repository from github: http://github/forj/docs
+* Clone the docs repository from github: http://github/forj-oss/docs
 * Setup your sphinx environment on your PC: http://sphinx-doc.org/
 * Edit the doc
 * test it with "make html"
