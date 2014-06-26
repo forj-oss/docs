@@ -23,7 +23,7 @@ The Forj core team is composed by the following individuals:
 +------------------------+-----------------------+----------------+
 | Overall Architect      | Edward Raigosa        | wenlock        |
 +------------------------+-----------------------+----------------+
-| Scrum Master           | Kathryn Kuhn          |                |
+| Scrum Master           | Kathryn Kuhn          | kuhnk          |
 +------------------------+-----------------------+----------------+
 | Lead                   | Miguel Quintero       | miqui          |
 +------------------------+-----------------------+----------------+
