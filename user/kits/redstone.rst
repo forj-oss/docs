@@ -15,7 +15,7 @@ Learn more on the processes that are used by the OpenStack project here:
 * `How to contribute to OpenStack <https://wiki.openstack.org/wiki/How_To_Contribute>`_
 * `OpenStack infrastructure team <https://wiki.openstack.org/wiki/InfraTeam>`_
 
-Check this tutorial which goes shows Redstone in action.
+Check this tutorial which shows Redstone in action:
 
 |ImageLink|_
 
