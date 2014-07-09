@@ -15,6 +15,13 @@ Learn more on the processes that are used by the OpenStack project here:
 * `How to contribute to OpenStack <https://wiki.openstack.org/wiki/How_To_Contribute>`_
 * `OpenStack infrastructure team <https://wiki.openstack.org/wiki/InfraTeam>`_
 
+Check this tutorial which goes shows Redstone in action.
+
+|ImageLink|_
+
+.. |ImageLink| image:: /img/redstone.tutorial.jpg
+.. _ImageLink: https://www.youtube.com/watch?v=IUwMFzOALmU
+
 Tools and features
 ------------------
 In its current version, the Redstone blueprint contains the following features:
