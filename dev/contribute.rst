@@ -105,6 +105,9 @@ The Contribution Process
 * Maintainer conducts code review, verifies :ref:`"DCO signoff" <dco>` and Apache v2.0 license header (this is automated), runs tests and asks for adjustments from contributor as necessary
 * Maintainer merges the commits into the repo
 
+Contributing code
+-----------------
+
 Forj's code development process mimics the one used by the OpenStack project. If you are an OpenStack contributor, you will feel at home.
 
 .. figure:: /img/contribute_code.png
@@ -116,6 +119,9 @@ Useful links:
 * `Issue list`_
 * `Forj's Gerrit`_
 * `Community`_
+
+Contributing documentation
+--------------------------
 
 Documentation is also an open source project. The sources are available from the main Forj repository on Github. We encourage you to make improvements, whether big or small, to this documentation.
 
@@ -135,7 +141,7 @@ To contribute to the documentation
 * Setup your sphinx environment on your PC: http://sphinx-doc.org/
 * Edit the doc
 * test it with "make html"
-* Open a pull request and interact with the core team
+* Open a pull request on github and interact with the core team
 * Once reviewed, the changes are merged by the core team in the Github repository
 * The documentation gets refreshed automatically thanks to a web hook
 
