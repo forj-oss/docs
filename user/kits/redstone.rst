@@ -257,6 +257,8 @@ In order to gerrit send email notifications you need to configure it first.
         gerrit_config::smtpserver:      "%{::exim_config::aux::maestro_ip}"
         gerrit_config::sendemail_from:  'YOUR_SEND_EMAIL_NAME'
 
+* Allow puppet to run at least twice on both maestro and review nodes in order to see your changes show up.
+
 .. _redstone-blueprint-faq:
 
 FAQ
