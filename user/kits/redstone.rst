@@ -215,6 +215,48 @@ User management
 
 In the Redstone blueprint, the first user who authenticates to Gerrit and Jenkins become administrator. Then, it is the role of the administrator to add users in the respective tools and projects.
 
+Configure Email Notifications
+-----------------------------
+
+In order to gerrit send email notifications you need to configure it first.
+
+* First you need to have at least one project configured in gerrit, and have a forj-config clone git repository.
+* Have a external MTA account, in this example we will use sendgrid_. This service has a free account option if you want to try it.
+* In the path **forj-config/modules/runtime_project/files/hiera/layouts/** you need to make the following changes in the file **maestro.yaml**:
+
+.. _sendgrid: http://sendgrid.com/
+
+    .. sourcecode:: yaml
+
+          classes:
+            - ....
+            - exim_config::aux
+            - exim_config
+
+          exim_config::smarthost: 'smtp.sendgrid.net'
+          exim_config::port: '587 byname'
+          exim_config::smtp_require_auth: true
+          exim_config::smtp_username: 'YOUR_USER'
+          exim_config::smtp_password: 'YOUR_PASSWORD'
+          exim_config::relay_from_hosts:
+            - '127.0.0.1'
+            - "%{::exim_config::aux::review_ip}"
+
+          sysadmin_config::manage_servers::iptables_public_tcp_ports:
+            - 25
+            - ...
+
+* In the same path as above, modify the file **review.yaml** adding the following lines:
+
+    .. sourcecode:: yaml
+
+        classes:
+          - exim_config::aux
+          - ...
+
+        gerrit_config::smtpserver:      "%{::exim_config::aux::maestro_ip}"
+        gerrit_config::sendemail_from:  'YOUR_SEND_EMAIL_NAME'
+
 .. _redstone-blueprint-faq:
 
 FAQ
