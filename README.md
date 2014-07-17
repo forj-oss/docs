@@ -1,4 +1,4 @@
 docs
 ====
 
-Forj documentation: Maestro and music sheets (also known as blueprints)
+Forj documentation: source code for http://docs.forj.io
