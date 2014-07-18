@@ -29,7 +29,7 @@ Please refer to the appropriate section of project management for the blueprint 
 
 By default this section is only available for the forge aministrator, but you can change that if you like currently we have 3 leves of access:
 
-.. user levels::
+.. note::
 	Administrator (They have access to everything in the forge)
 	Authenticated Users (Limited access to a few features of the forge)
 	Anonymous Users (Only view access to the tools of the forge)
