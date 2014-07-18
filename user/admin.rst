@@ -29,13 +29,15 @@ Please refer to the appropriate section of project management for the blueprint 
 
 By default this section is only available for the forge aministrator, but you can change that if you like currently we have 3 leves of access:
 
-.. note::
 	* Administrator (They have access to everything in the forge)
 	* Authenticated Users (Limited access to a few features of the forge)
 	* Anonymous Users (Only view access to the tools of the forge)
 
 To change the access level for the Projects section you need to modify the file maestro.yaml that is located in:
 	/opt/config/production/git/maestro/puppet/modules/hiera/files/hiera/hieradata/Debian/nodetype/maestro.yaml
+	
+There change the line that says global_manage_projects under jimador::site
+	global_manage_projects: "admin"
 
 Users
 -----
