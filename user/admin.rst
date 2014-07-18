@@ -34,7 +34,7 @@ By default this section is only available for the forge aministrator, but you ca
 
 To change the access level for the Projects section you need to modify the file maestro.yaml that is located in:
 ::
-	\[forj-config\]/modules/runtime_project/hiera/layouts/maestro.yaml
+	[forj-config]/modules/runtime_project/hiera/layouts/maestro.yaml
 
 Update or add the yaml configuration section 'jimador::site:', example:
 ::
