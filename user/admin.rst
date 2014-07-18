@@ -47,10 +47,11 @@ Available value options for global_manage_projects include:
 
 Commit your changes for '[forj-config]', approve them, then apply your puppet manifest on maestro, or allow at least two runs for puppet to update.
 The file /opt/config/production/config.json will be updated with your settings.
- FACTERLIB="/var/lib/puppet/lib/facter"
- PATH="/usr/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin"
- puppet agent --test
- puppet agent --test  # run this at leat twice for updates to get propogated
+
+| FACTERLIB="/var/lib/puppet/lib/facter"
+| PATH="/usr/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin"
+| puppet agent --test
+| puppet agent --test  # run this at leat twice for updates to get propogated
 
 If you want to see if your change was applied open the config.json file and there you will see the "global_manage_projects" with your new value.
 
