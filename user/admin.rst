@@ -27,6 +27,37 @@ Projects
 The notion of projects varies from blueprint to blueprint. In the :ref:`"Redstone" <redstone-blueprint>` blueprint, the project creation process from OpenStack infra is automated and exposed with the Maestro UI. 
 Please refer to the appropriate section of project management for the blueprint you use.
 
+By default this section is only available for the forge aministrator, but you can change that if you like currently we have 3 leves of access:
+ * Administrator (They have access to everything in the forge)
+ * Authenticated Users (Limited access to a few features of the forge)
+ * Anonymous Users (Only view access to the tools of the forge)
+
+To change the access level for the Projects section you need to modify the file maestro.yaml that is located in:
+::
+	[forj-config]/modules/runtime_project/hiera/layouts/maestro.yaml
+
+Update or add the yaml configuration section 'jimador::site:', example:
+::
+        jimador::site:
+          ...
+          global_manage_projects: "admin"
+
+Available value options for global_manage_projects include:
+ * "admin" = administrator access only
+ * "authenticated" = authenticated users and administrator
+ * "anonymous" = everyone
+
+Commit your changes for '[forj-config]', approve them, then apply your puppet manifest on maestro, or allow at least two runs for puppet to update.
+The file /opt/config/production/config.json will be updated with your settings.
+::
+	FACTERLIB="/var/lib/puppet/lib/facter"
+	PATH="/usr/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin"
+	puppet agent --test
+	puppet agent --test  # run this at leat twice for updates to get propogated
+::
+
+If you want to see if your change was applied open the config.json file and there you will see the "global_manage_projects" with your new value.
+
 Users
 -----
 Like projects, users may be managed differently from blueprint to blueprint. 
