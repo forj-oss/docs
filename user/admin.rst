@@ -33,25 +33,24 @@ By default this section is only available for the forge aministrator, but you ca
  * Anonymous Users (Only view access to the tools of the forge)
 
 To change the access level for the Projects section you need to modify the file maestro.yaml that is located in:
+	\[forj-config\]/modules/runtime_project/hiera/layouts/maestro.yaml
 
-```
-/opt/config/production/git/maestro/puppet/modules/hiera/files/hiera/hieradata/Debian/nodetype/maestro.yaml
-```
+Update or add the yaml configuration section 'jimador::site:', example:
+        jimador::site:
+          ...
+          global_manage_projects: "admin"
 
-There change the line that says global_manage_projects under jimador::site for the available options down below
-```
-global_manage_projects: "admin"
-```
-
-Available options
+Available value options for global_manage_projects include:
  * "admin" = administrator access only
  * "authenticated" = authenticated users and administrator
  * "anonymous" = everyone
 
-After you do that and save your changes do a puppet run to apply those changes to the config.json file
-```
-$ puppet agent --test
-```
+Commit your changes for '[forj-config]', approve them, then apply your puppet manifest on maestro, or allow at least two runs for puppet to update.
+The file /opt/config/production/config.json will be updated with your settings.
+ FACTERLIB="/var/lib/puppet/lib/facter"
+ PATH="/usr/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin"
+ puppet agent --test
+ puppet agent --test  # run this at leat twice for updates to get propogated
 
 If you want to see if your change was applied open the config.json file and there you will see the "global_manage_projects" with your new value.
 
