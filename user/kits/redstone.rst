@@ -24,11 +24,15 @@ Check this tutorial which shows Redstone in action:
 
 Tools and features
 ------------------
+Very high level, the Redstone flow looks like this:
+
+.. image:: /img/redstone.gif
+
 In its current version, the Redstone blueprint contains the following features:
 
 * Puppet master automation, create new modules and promote them in the :term:`forj-config` project.
 * Gerrit/git services for revision control and change management.
-	* Login with google openid, use www.google.com to setup your email account for authentication.
+	* Login with Launchpad openid, use `www.launchpad.net <http://www.launchpad.net>`_ to setup your email account for authentication.
 	* Create open commits that can be reviewed with the team and gated for change before they hit master.
 	* Tag and release changes when they are ready for testing or production.
 	* Mark commits as work in progress or abandon revert old changes.
@@ -38,7 +42,7 @@ In its current version, the Redstone blueprint contains the following features:
 	* Create automatic Jenkins jobs so that your team no longer manages Jenkins setup on Jenkins master, all configuration is managed as source in forj-config git project.
 	* Gate changes and execute automated test as soon as changes make it to gerrit/git.
 	* Promote changes based on gerrit events for tagging or comments made during reviews.
-	* Login with google openid
+	* Login with launchpad openid
 	* Zuul status: see what changes are being automatically tested, the progress and the status from one interface
 * Pastebin integration
 	* Collaborate with team mates with code snippets and log pasting for troubleshooting defects.
