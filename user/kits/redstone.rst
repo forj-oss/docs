@@ -234,7 +234,6 @@ In order to gerrit send email notifications you need to configure it first.
 
           classes:
             - ....
-            - exim_config::aux
             - exim_config
 
           exim_config::smarthost: 'smtp.sendgrid.net'
@@ -244,7 +243,7 @@ In order to gerrit send email notifications you need to configure it first.
           exim_config::smtp_password: 'YOUR_PASSWORD'
           exim_config::relay_from_hosts:
             - '127.0.0.1'
-            - "%{::exim_config::aux::review_ip}"
+            - "%{::exim_config::utils::review_ip}"
 
           sysadmin_config::manage_servers::iptables_public_tcp_ports:
             - 25
@@ -255,11 +254,73 @@ In order to gerrit send email notifications you need to configure it first.
     .. sourcecode:: yaml
 
         classes:
-          - exim_config::aux
+          - exim_config::utils
           - ...
 
-        gerrit_config::smtpserver:      "%{::exim_config::aux::maestro_ip}"
-        gerrit_config::sendemail_from:  'YOUR_SEND_EMAIL_NAME'
+        gerrit_config::smtpserver:      "%{::exim_config::utils::maestro_ip}"
+        gerrit_config::sendemail_from:  'YOUR_SENDFROM_EMAIL_NAME'
+
+Email Troubleshooting
+---------------------
+
+If you are having problems with this configuration, you can try these steps to find where the problem is.
+
+1. Check if gerrit was configured correctly in Review server:
+    1. Check gerrit's config file located in **/home/gerrit2/review_site/etc/gerrit.config** you should have something similar:
+
+    .. sourcecode:: yaml
+
+            [sendemail]
+            smtpServer = 10.0.0.90
+            from = robot <robot@my.com>
+
+    2. A common problem is an empty IP address, just make sure that **exim_config::utils** in classes is located **before** gerrit class.
+    3. Check if the port 25 is open on maestro server:
+
+    .. sourcecode:: shell
+
+            $ nc -v 10.0.0.90 smtp
+            Connection to 10.0.0.90 25 port [tcp/smtp] succeeded!
+            220 maestro.v5.dev.forj.io ESMTP Exim 4.76 Fri, 18 Jul 2014 22:00:05 +0000
+
+    4. Make sure that you have at least 2 users registered in gerrit before attempting to test it.
+    5. While you generate the email event in gerrit, keep monitoring log file: **tail -f /home/gerrit2/review_site/logs/error_log**, you should see if the mail was attempted to sent.
+
+2. Check if exim was correctly configured in maestro.
+    1. Try to send a test email to check if the external smtp server was configured correctly:
+
+     .. sourcecode:: shell
+
+        $ echo "Test email " | mail -s "test external" <email_address@my.com>
+
+    2. If you didn't receive the mail you can test changing the parameters manually in exim config file
+
+     .. sourcecode:: shell
+
+        $ service exim4 stop
+        $ vim /etc/exim4/exim4.conf
+        $ service exim4 start
+
+    3. As a alternative you can use a terminal email client to make further tests.
+
+     .. sourcecode:: shell
+
+        $ apt-get install mutt
+        $ vim ~/.muttrc
+
+     and add the following line:
+
+     .. sourcecode:: shell
+
+        set smtp_url = "smtp://smtp.sendgrid.net:587"
+
+     try to send a test email
+
+     .. sourcecode:: shell
+
+       echo "Test email " | mutt -s "test external" email_address@my.com
+
+    4. You can view exim logs in the following location: **/var/log/exim4/mainlog**
 
 * Allow puppet to run at least twice on both maestro and review nodes in order to see your changes show up.
 
