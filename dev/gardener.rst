@@ -1,10 +1,10 @@
 Gardener
 =========
-Module in charge of manage configurations, credentials, user-data,... for forj kits, creates and destroys static nodes.
+Module in charge of managing configurations, credentials, user-data for forj forges, as well as creating and destroying the static nodes of the forge.
 
 
 Install Gardener
---------
+----------------
 The installation of gardener.
 
 1. During the creation of master, in the file `10-puppet.pp` the instruction `puppet apply $PUPPET_FLAGS --modulepath=$PUPPET_MODULES /opt/config/production/puppet/manifests/bootstrap_hiera.p` in thee Stage [Main] the file init.pp from gardener is loaded.
@@ -20,17 +20,17 @@ Figure below shows the flow of control.
 
 
 Verifying Installation and Loading Plug-ins
--------
-At the end of the file 10-puppet.pp is executed the command `puppet agent $PUPPET_FLAGS --waitforcert` this will verifies the install and load the plug-ins of puppet (the gardener's plug-ins are also loaded).
+-------------------------------------------
+At the end of 10-puppet.pp, one execute the command `puppet agent $PUPPET_FLAGS --waitforcert` which verifies the install and loads the puppet plug-ins (the gardener's plug-ins are also loaded).
 
-At the end of the file 20-instantiate-forj-at-boot.sh is executed the command `puppet agent --debug --verbose $PUPPET_FLAGS --waitforcert`, this will verifies the install and will check the status of the nodes, if any node is listed as not found or not created, it is created.
+At the end of the file 20-instantiate-forj-at-boot.sh, one execute the command `puppet agent --debug --verbose $PUPPET_FLAGS --waitforcert`, which verifies the install and checks the status of the nodes, if any node is listed as not found or not created, it is created.
 
 
 .. figure:: /img/gardener_verify.jpg
 
 
 Loading Provider and Credentials
--------
+--------------------------------
 When the plug-ins are loaded, will load the provider and credentials configuration 
 
 1. Load `pinas/loader.rb`.
@@ -48,17 +48,17 @@ When the plug-ins are loaded, will load the provider and credentials configurati
 
 
 Creating User Data
--------
-In `20-instantiate-forj-at-boot.sh` will create the nodes of the blueprint but to do it we will need user-data to create them.
+------------------
+`20-instantiate-forj-at-boot.sh` creates the nodes of the blueprint with user-data.
 
 1. Is set a relationship `write-mime-multipart.template.py` before `boothook.template.sh`.
 2. Is set a relationship `boothook.template.sh` before `boot-node.template.sh`.
 3. Is set a relationship `boot-node.template.sh` before `cloud-config-node.template.yaml`.
 4. Is set a relationship `cloud-config-node.template.yaml` before `Exec[create /tmp/mime.txt]`.
 5. Is set a relationship `Exec[create /tmp/mime.txt]` before `Exec[dos2unix for /tmp/mime.txt]`.
-6. Then the `gardener::srever_up.pp::gen_userdata` will be executed .
-7. This wil use `gardener::gen_userdata.pp` execute the files necessary for the generation.
-8. `gardener::gen_userdata` will create the `file mime.txt` according to the relationships created before..
+6. Then the `gardener::srever_up.pp::gen_userdata` will be executed.
+7. This will use `gardener::gen_userdata.pp` execute the files necessary for the generation.
+8. `gardener::gen_userdata` will create the `file mime.txt` according to the relationships created before.
 
 
 .. figure:: /img/gardener_create_userdata.jpg
@@ -66,7 +66,7 @@ In `20-instantiate-forj-at-boot.sh` will create the nodes of the blueprint but t
 
 .. _accept-contributions:
 Creating Nodes
--------
+--------------
 This is one of the main functionalities of gardener.
 
 1. `gardener::params.pp` has as one of its attributes compute, which call to `compute.rb`.
@@ -82,7 +82,7 @@ This is one of the main functionalities of gardener.
 
 
 Destroying Nodes
--------
+----------------
 this functionality will destroy the nodes created.
 
 maestro::orchestrator::unwindallservers will use `gardener::server_destroy`.
