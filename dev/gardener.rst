@@ -7,7 +7,7 @@ Install Gardener
 ----------------
 The installation of gardener.
 
-1. During the creation of master, in the file `10-puppet.pp` the instruction `puppet apply $PUPPET_FLAGS --modulepath=$PUPPET_MODULES /opt/config/production/puppet/manifests/bootstrap_hiera.p` in thee Stage [Main] the file init.pp from gardener is loaded.
+1. During the creation of master, in the file `10-puppet.pp` the instruction `puppet apply $PUPPET_FLAGS --modulepath=$PUPPET_MODULES /opt/config/production/puppet/manifests/bootstrap_hiera.p` in the Stage [Main] the file init.pp from gardener is loaded.
 
 2. The file init.pp include the class requirements, this loads the file requirements.pp.
 
@@ -31,7 +31,7 @@ At the end of the file 20-instantiate-forj-at-boot.sh, one execute the command `
 
 Loading Provider and Credentials
 --------------------------------
-When the plug-ins are loaded, will load the provider and credentials configuration 
+When the plug-ins are loaded, will load the provider and credentials configuration
 
 1. Load `pinas/loader.rb`.
 2. Loader will try to get the provider using `provider.rb`.
@@ -95,5 +95,3 @@ maestro::orchestrator::unwindallservers will use `gardener::server_destroy`.
 6. And then it just destroy the server.
 
 .. figure:: /img/gardener_node_destroy.jpg
-
-
