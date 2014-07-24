@@ -19,5 +19,5 @@ include a CI/CD node with the CLIs necessary to interact with the following aPaa
 
 
 The overall aPaas integration scenario is for a blueprint to include a node (OS depends on the aPaas vendor's CLI OS support - almost all run on linux/Mac OSX) that
-will execute the CLIs to interact with their environment. More support for aPaas vendors can be easily added by simply installing on the CI/CD node the
-necessary CLIs via the blueprint's orchestration mechanism.
+will execute the CLIs to interact with their environment. More support for aPaas vendors can be easily added by simply installing on the CI/CD node the required
+CLIs via the blueprint's orchestration mechanism.
