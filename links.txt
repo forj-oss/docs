@@ -7,3 +7,6 @@
 .. _Sphinx: http://sphinx-doc.org/
 .. _IRC: http://webchat.freenode.net/?channels=forj
 .. _mailing list: https://groups.google.com/forum/#!forum/forj-io
+.. _Hewlett-Pacakard Helion Development Environment: https://docs.hpcloud.com/apaas/
+.. _ActiveState Stackato: http://www.activestate.com/stackato
+.. _CloudFoundry: http://docs.cloudfoundry.org/

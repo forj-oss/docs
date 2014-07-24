@@ -3,7 +3,7 @@
 
 Forj documentation
 ==================
-Forj provides software developers with a rapid, flexible and open continuous integration (CI)/ continuous delivery (CD) development platform. 
+Forj provides software developers with a rapid, flexible and open continuous integration (CI)/ continuous delivery (CD) development platform.
 This environment is often referred to as a software forge, even though, at the time the name was invented, the notion of CI and CD was not as prevalent.
 
 Forj provides:
@@ -38,6 +38,7 @@ User guide
    help
    glossary
    license
+   user/apaas
 
 Developer guide
 ---------------
@@ -59,4 +60,3 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`search`
-
