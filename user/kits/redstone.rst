@@ -358,7 +358,7 @@ This would replace the automated self signed certificates that are auto generate
 
 Submit the .csr request to your certificate authority (verisign for example) and save away your private keys.
 If you also recieve intermediate certificates, such as a corporate signing authority, you will need to save those
-as well.  These will be your certificate chain or intermiary.
+as well.  These will be your intermediate certificate chain.
      
 Ideally this request is performed for review and ci nodes.  Long term, you will also want one for the maestro node.
 At this time, we do not need a certificate for the maestro node.
@@ -366,12 +366,51 @@ At this time, we do not need a certificate for the maestro node.
 2. clone the [forj-config] project from your Redstone forge so that we can create a new module to store and deploy
    the certificates.  Even though the private key is protected, it's possible to store the credentials for the 
    certificate in a secure hiera eyaml file on maestro for decription.
-     
-   Example:
+   
+   The mdule structure a custom_certs module that holds and installs your cert will look like this:
+      [forj-config] 
+             \ modules 
+                     \ custom_certs 
+                                  \ files
+                                        \ certs
+                                              \ chain.crt                         # This is your certificate signer public certs.
+                                              \ review.yourdomain.com.locked_key  # This is the private key generated in step 1.  Password included.
+                                              \ review.yourdomain.com.csr         # Your certificate request
+                                              \ review.yourdomain.com.crt         # Your x509 signed cert from your certificate provider.
+
+3. Next you need code for reading your cert from maestro node.  We will also have code for installing the certs.
+   We can't use the normal puppet file function because it will fail on runs where the cert doesn't exist, but
+   we can use a custom parser function provided by [forj-oss/maestro]::cacerts called cacerts_getkey.
+   
+   Create a params class for every cert you will manage.  In this example we use the params class:
+   
+   [forj-config] \ modules \ custom_certs \ manifest \ review_sslparams.pp
+   
    .. sourcecode:: puppet
-        <code snipit of params.pp>
-        <code snipit for install.pp>
-     
+       
+        class custom_certs::review_sslparams
+	(
+	  $ca_certs_db  = hiera('custom_certs::install::ca_certs_db','/opt/config/cacerts'),
+	)
+	{
+	  $ssl_cert_file_contents      = cacerts_getkey( "${ca_certs_db}/custom/ci.hpl.hp.com.crt" )
+	  $ssl_key_file_contents       = cacerts_getkey( "${ca_certs_db}/custom/ci.hpl.hp.com.key" )
+	  $ssl_chain_file_contents     = cacerts_getkey( "${ca_certs_db}/custom/chain.crt" )
+	  if $ssl_cert_file_contents != ''
+	  {
+	    notify{'custom cert found for ci ssl_cert_file_contents':
+	      before => Class['cdk_project::gerrit'],
+	    }
+	  } else
+	  {
+	    warning('ci ssl_cert_file_contents is empty for custom cert')
+	  }
+	}
+
+The default location for certs will be in /opt/config/cacerts for maestro node.  Under this folder we will place the custom 
+certs in a custom folder.  Another module will be used to place the certs.  The notify resource will be used to sequence
+the cert configuration of the parameters prior to any actions on the classes from gerrit.  
+
 3. Save password in /etc/puppet/hieradata/common.eyaml
 4. Execute puppet apply
 
