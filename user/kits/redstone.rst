@@ -333,7 +333,7 @@ account.  This section will only describe the areas of [forj-config] that can
 be updated to controll the naming behavior for jenkins and gerrit.  We will not
 attempt to describe how to use external dns service.
 
-1. The following files will be modified to give well known domain name for each node:
+1. The following files will be modified to give a well known domain name for each node:
    Register the domains with your DNS provider and cloud account.
 
    **[forj-config]/modules/runtime_project/**
