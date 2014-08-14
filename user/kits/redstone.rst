@@ -328,18 +328,18 @@ Configure DNS Names
 -------------------
 Initially when you deploy your forge, you will refrence your forge by ip address
 but this is not practical for your end-users.  It's possible to assign a well
-known dns name to your forge nodes from a dns server outside of your cloud
+known dns name to your forge nodes from a DNS server outside of your cloud
 account.  This section will only describe the areas of [forj-config] that can
 be updated to controll the naming behavior for jenkins and gerrit.  We will not
-attempt to describe how to use external dns service.
+attempt to describe how to use external DNS service.
 
-1. The following files will be modified to give a well known domain name for each node:
-   Register the domains with your DNS provider and cloud account.
+1. The following files will be modified to give a well known domain name for each node.
+   You should register the domains with your DNS provider.
 
    **[forj-config]/modules/runtime_project/**
 
    =====================   ==================================   ====================
-   Directory               file                                 Proposed dns names
+   Directory               file                                 Proposed DNS names
    =====================   ==================================   ====================
    ./files/hiera/layouts   maestro.yaml                         maestro.yourdomain.com
    ./files/hiera/layouts   ci.yaml                              ci.yourdomain.com
@@ -347,7 +347,7 @@ attempt to describe how to use external dns service.
    ./files/hiera/layouts   util.yaml                            util.yourdomain.com
    =====================   ==================================   ====================
    
-2. Configuration for **maestro** node configuration file.
+2. Configuration for **maestro** node.
 
    **[forj-config]/modules/runtime_project/files/hiera/layouts/maestro.yaml**
 
@@ -369,7 +369,7 @@ attempt to describe how to use external dns service.
            shortname: "RedStone"
          #...
 
-3. Configuration for **ci** node configuration file.
+3. Configuration for **ci** node.
 
    **[forj-config]/modules/runtime_project/files/hiera/layouts/ci.yaml**
 
@@ -399,7 +399,7 @@ attempt to describe how to use external dns service.
          cdk_project::zuul::zuul_url:          "http://ci.yourdomain.com/p"
          #...
 
-4. Configuration for **review** node configuration file.
+4. Configuration for **review** node.
 
    **[forj-config]/modules/runtime_project/files/hiera/layouts/review.yaml**
 
@@ -423,7 +423,7 @@ attempt to describe how to use external dns service.
          cdk_project::gerrit::canonicalweburl:                  "https://review.yourdomain.com/"
          #...
 
-5. Configuration for **util** node configuration file.
+5. Configuration for **util** node.
 
    **[forj-config]/modules/runtime_project/files/hiera/layouts/util.yaml**
 
@@ -460,6 +460,8 @@ attempt to describe how to use external dns service.
          # 'paste' tool
          cdk_project::paste::vhost_name: "util.yourdomain.com"
          #...
+
+7. Commit and approve these changes.
 
 Install SSL Certificates
 ------------------------
