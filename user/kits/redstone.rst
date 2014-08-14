@@ -331,8 +331,7 @@ but this is not practical for your end-users.  It's possible to assign a well
 known dns name to your forge nodes from a dns server outside of your cloud
 account.  This section will only describe the areas of [forj-config] that can
 be updated to controll the naming behavior for jenkins and gerrit.  We will not
-attempt to describe how to use external dns service.  We will make some mention
-of openstack dns service.
+attempt to describe how to use external dns service.
 
 1. The following files will be modified to give well known domain name for each node:
    Register the domains with your DNS provider and cloud account.
