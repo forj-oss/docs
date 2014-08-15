@@ -653,14 +653,13 @@ projects and gates still applies here.
    
       $ sudo -i
       $ puppet agent -t
-      $ salt 'ci.*' cmd.run "/usr/bin/puppet agent -t"
-      $ salt 'review.*' cmd.run "/usr/bin/puppet agent -t"
+      $ salt -E '(ci|review).*' cmd.run "/usr/bin/puppet agent -t"
  
 8. If certs don't imediately install, you can also restart apache services on each node:
 
    .. sourcecode:: shell
    
-      $ salt '[ci|review].*' cmd.run "service apache2 restart"
+      $ salt -E '(ci|review).*' cmd.run "service apache2 restart"
 
 
 .. _redstone-blueprint-faq:
