@@ -492,7 +492,7 @@ projects and gates still applies here.
    .. sourcecode:: shell
    
       $ openssl genrsa -passout pass:secretpass -des3 -out review.yourdomain.com.key 2048
-      $ openssl req -new -key review.hpl.hp.com.key -out review.yourdomain.com.csr    
+      $ openssl req -new -key review.yourdomain.com.key -out review.yourdomain.com.csr    
 
 -  Submit the .csr request to your certificate authority (verisign for example) 
    and save away your private keys.  If you also recieve intermediate
