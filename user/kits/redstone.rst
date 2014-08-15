@@ -60,7 +60,7 @@ Adding a new project
 In the Redstone blueprint, projects are managed by code, exactly like the OpenStack infrastructure project. This code, which sits in the forj-config Gerrit repository describes a project and is used to provision the entire chain associated to a project (Gerrit, Jenkins, Zuul).
 
 With Maestro User Interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	* Enter the maestro UI and sign-in if needed, so you become the administrator and can add projects. The first user who logs becomes administrator and can add other administrators. Only administrator can create projects.
 	* Connect to Gerrit. The first user who logs in to Gerrit becomes administrator
 	* As a Gerrit administrator, add yourself to the "forj-config" group. This allows you to review and approve changes in the forj-config project
@@ -73,7 +73,7 @@ With Maestro User Interface
 
 
 Using "Redstone" mechanisms
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You have full control of project creation by checking out the forj-config project and modifying the files that you need.
 
@@ -323,6 +323,344 @@ If you are having problems with this configuration, you can try these steps to f
     4. You can view exim logs in the following location: **/var/log/exim4/mainlog**
 
 * Allow puppet to run at least twice on both maestro and review nodes in order to see your changes show up.
+
+Configure DNS Names
+-------------------
+Initially when you deploy your forge, you will refrence your forge by ip address
+but this is not practical for your end-users.  It's possible to assign a well
+known dns name to your forge nodes from a DNS server outside of your cloud
+account.  This section will only describe the areas of [forj-config] that can
+be updated to controll the naming behavior for jenkins and gerrit.  We will not
+attempt to describe how to use external DNS service.
+
+1. The following files will be modified to give a well known domain name for each node.
+   You should register the domains with your DNS provider.
+
+   **[forj-config]/modules/runtime_project/**
+
+   =====================   ==================================   ====================
+   Directory               file                                 Proposed DNS names
+   =====================   ==================================   ====================
+   ./files/hiera/layouts   maestro.yaml                         maestro.yourdomain.com
+   ./files/hiera/layouts   ci.yaml                              ci.yourdomain.com
+   ./files/hiera/layouts   review.yaml                          review.yourdomain.com
+   ./files/hiera/layouts   util.yaml                            util.yourdomain.com
+   =====================   ==================================   ====================
+   
+2. Configuration for **maestro** node.
+
+   **[forj-config]/modules/runtime_project/files/hiera/layouts/maestro.yaml**
+
+   - From:
+   
+     .. sourcecode:: yaml
+
+         jimador::site:
+           maestro_url: "http://%{::maestro::node_vhost_lookup::vname}"
+           shortname: "RedStone"
+         #...
+
+   - To:
+   
+     .. sourcecode:: yaml
+
+         jimador::site:
+           maestro_url: "http://maestro.yourdomain.com"
+           shortname: "RedStone"
+         #...
+
+3. Configuration for **ci** node.
+
+   **[forj-config]/modules/runtime_project/files/hiera/layouts/ci.yaml**
+
+   - From:
+   
+     .. sourcecode:: yaml
+   
+         #Jenkins tool
+         cdk_project::jenkins::vhost_name:               "%{::maestro::node_vhost_lookup::vname}"
+         #...
+         #Zuul tool
+         cdk_project::zuul::vhost_name:        "%{::maestro::node_vhost_lookup::vname}"
+         #...
+         cdk_project::zuul::zuul_url:          "http://%{::maestro::node_vhost_lookup::vname}/p"
+         #...
+
+   - To:
+   
+     .. sourcecode:: yaml
+   
+         #Jenkins tool
+         cdk_project::jenkins::vhost_name:               "ci.yourdomain.com"
+         #...
+         #Zuul tool
+         cdk_project::zuul::vhost_name:        "ci.yourdomain.com"
+         #...
+         cdk_project::zuul::zuul_url:          "http://ci.yourdomain.com/p"
+         #...
+
+4. Configuration for **review** node.
+
+   **[forj-config]/modules/runtime_project/files/hiera/layouts/review.yaml**
+
+   - From:
+   
+     .. sourcecode:: yaml
+   
+         #...
+         cdk_project::gerrit::vhost_name:                       "%{::maestro::node_vhost_lookup::vname}"
+         cdk_project::gerrit::ip_vhost_name:                    "%{::maestro::node_vhost_lookup::vname}"
+         cdk_project::gerrit::canonicalweburl:                  "https://%{::maestro::node_vhost_lookup::vname}/"
+         #...
+
+   - To:
+   
+     .. sourcecode:: yaml
+   
+         #...
+         cdk_project::gerrit::vhost_name:                       "review.yourdomain.com"
+         cdk_project::gerrit::ip_vhost_name:                    "review.yourdomain.com"
+         cdk_project::gerrit::canonicalweburl:                  "https://review.yourdomain.com/"
+         #...
+
+5. Configuration for **util** node.
+
+   **[forj-config]/modules/runtime_project/files/hiera/layouts/util.yaml**
+
+   - From:
+   
+     .. sourcecode:: yaml
+   
+         #...
+         cdk_project::status::vhost_name: "%{::maestro::node_vhost_lookup::vname}"
+         cdk_project::status::graphite_url: "http://%{::maestro::node_vhost_lookup::vname}:8081"
+         cdk_project::status::static_url: "http://%{::maestro::node_vhost_lookup::vname}:8080"
+         cdk_project::status::maestro_url: "http://%{::eroip}"
+         
+         # 'graphite' tool
+         cdk_project::graphite::vhost_name: "%{::maestro::node_vhost_lookup::vname}"
+         #...
+         # 'paste' tool
+         cdk_project::paste::vhost_name: "%{::maestro::node_vhost_lookup::vname}"
+         #...
+
+   - To:
+   
+     .. sourcecode:: yaml
+   
+         #...
+         cdk_project::status::vhost_name: "util.yourdomain.com"
+         cdk_project::status::graphite_url: "http://util.yourdomain.com:8081"
+         cdk_project::status::static_url: "http://util.yourdomain.com:8080"
+         cdk_project::status::maestro_url: "http://maestro.yourdomain.com"
+         
+         # 'graphite' tool
+         cdk_project::graphite::vhost_name: "util.yourdomain.com"
+         #...
+         # 'paste' tool
+         cdk_project::paste::vhost_name: "util.yourdomain.com"
+         #...
+
+7. Commit and approve these changes.
+
+Install SSL Certificates
+------------------------
+
+The Redstone blueprint will install a custom certificate that is digitally
+signed by a self signed certificate registry located on maestro.  This is
+managed by the cacerts puppet module from the `forj-oss/maestro <https://github.com/forj-oss/maestro>`_ repository.
+This however means that developers and end-users that access the **review** and **ci**
+nodes for your forge will be warned and prompted to continue navigation to the
+site because these certificates are not typically trusted by the browser.
+
+.. image:: /img/https_error.png
+
+In this section we will describe the process you can follow for configuring a
+digitally signed certificate from a certificate authority that would more
+commonly be trusted by your browser.  This would replace the automated self
+signed certificates that are auto generated by maestro.  When making changes to 
+the [forj-config] repository, be aware that the same ci workflow used for updating
+projects and gates still applies here.
+
+1. Generate a private key and certificate signing request(csr).
+   This can be performed with 
+   `these instructions <https://knowledge.verisign.com/support/ssl-certificates-support/index?page=content&actp=CROSSLINK&id=AR198>`_ 
+   documented on the verisign website.
+
+   Example:
+
+   .. sourcecode:: shell
+   
+      $ openssl genrsa -passout pass:secretpass -des3 -out review.yourdomain.com.key 2048
+      $ openssl req -new -key review.hpl.hp.com.key -out review.yourdomain.com.csr    
+
+-  Submit the .csr request to your certificate authority (verisign for example) 
+   and save away your private keys.  If you also recieve intermediate
+   certificates, such as a corporate signing authority, you will need to save
+   those as well.  These will be your intermediate certificate chain.
+-  Ideally this request is performed for **review** and **ci** nodes.  Long term, you will also want one for the maestro node.
+   At this time, we do not need a certificate for the **maestro** node.
+  
+2. Create a custom_certs module to deliver your certs.
+
+   clone the [forj-config] project from your Redstone forge so that we can create a new module to store and deploy
+   the certificates.  Even though the private key is protected, it's possible to store the credentials for the 
+   certificate in a secure hiera eyaml file on maestro for decription.  In these steps we are only creating
+   the certificates for **review** node, but you can repeat this for **ci** and **maestro** nodes.
+
+   Folder layout for custom_certs puppet module:
+
+   **[forj-config]/modules/custom_certs/**
+
+   ====================   ==================================   ====================
+   Directory              file                                 Description
+   ====================   ==================================   ====================
+   ./files/certs          chain.crt                            This is your certificate signer public certs.
+   ./files/certs          review.yourdomain.com.locked_key     This is the private key generated in step 1.  Password included.
+   ./files/certs          review.yourdomain.com.csr            Your certificate request
+   ./files/certs          review.yourdomain.com.cst            Your x509 signed cert from your certificate provider.
+   ./files/manifests      review_sslparams.pp                  This will contain puppet ref vars to ssl cert contents.
+   ====================   ==================================   ====================
+   
+
+3. Create a class file **<node>**\_sslparams.pp for each cert that will be needed.
+   In this case we create the class file for the **review** node (review_sslparams.pp).  
+   We can't use the normal puppet file function because it will fail on runs where the cert doesn't exist, but
+   we can use a custom parser function provided by [forj-oss/maestro]::cacerts called cacerts_getkey.
+   
+   Sample Code to create in forj-config:
+   
+   [forj-config] / modules / custom_certs / manifest / review_sslparams.pp
+   
+   .. sourcecode:: puppet
+       
+        class custom_certs::review_sslparams
+        (
+          $ca_certs_db  = hiera('cacerts::ca_certs_db','/opt/config/cacerts'),
+        )
+        {
+          $ssl_cert_file_contents      = cacerts_getkey( "${ca_certs_db}/custom/review.yourdomain.com.crt" )
+          $ssl_key_file_contents       = cacerts_getkey( "${ca_certs_db}/custom/review.yourdomain.com.key" )
+          $ssl_chain_file_contents     = cacerts_getkey( "${ca_certs_db}/custom/chain.crt" )
+          if $ssl_cert_file_contents != ''
+          {
+            notify{'custom cert found for ci ssl_cert_file_contents':
+              before => Class['cdk_project::gerrit'],  # here we call the class we want to run before.
+            }
+          } else
+          {
+            warning('ci ssl_cert_file_contents is empty for custom cert')
+          }
+        }
+
+  - The default location for certs will be in /opt/config/cacerts for maestro node.  
+    Under this folder we will place the custom certs in a custom folder.  
+    The notify resource will be used to sequence the cert configuration of the
+    parameters prior to any actions on the classes from gerrit.
+  - Note, the chain.crt is simply the collection of pem files for the certificate
+    signers public keys that are created for the trust authority.  You can make
+    this empty if you are using a well known provider that comes installed with
+    the browsers you want to support.
+  - repeat the steps for the ci node, by changing all the **review** names to **ci**.
+  - Note, for the ci node, change :
+      **before => Class['cdk_project::gerrit'],**
+    to 
+      **before => Class['cdk_project::jenkins'],**
+
+4. Un-comment or add this sections to maestro.yaml in [forj-config]::runtime_project
+   This will place all the files from your custom_certs module into
+   **/opt/config/cacerts/custom** on the **maestro** node.
+
+   Sample Code to create in forj-config:
+   
+   [forj-config] / modules / runtime_project / files / hiera / layouts / maestro.yaml
+   
+   .. sourcecode:: yaml
+   
+      classes:
+        - runtime_project::install
+        - sysadmin_config::manage_servers
+        - cacerts::custom                  # user story #2189: uncomment this to enable custom cert installation
+      
+      # ...
+      # 2. uncomment the source module that will hold all custom certs to be unpackaged.
+      cacerts::custom::source: 'puppet:///modules/custom_certs/certs'
+      # ...
+
+5. Setup the master password for certs that were created in step 1 on the maestro box.
+   The password itself will be encrypted on maestro under **/etc/puppet/hieradata/common.eyaml**
+   with public/private keys found in **/etc/puppet/secure**
+   Make sure **thepassword** matches the password you selected in step 1 for **secretpass**.
+
+   **ssh to maestro node**:
+   
+   .. sourcecode:: shell
+   
+      $ sudo -i
+      $ cd /etc/puppet/secure
+      $ eyaml encrypt -l 'cacerts::custom::ca_pass' -s 'thepassword' | grep "cacerts::custom::ca_pass: ENC" >> /etc/puppet/hieradata/common.eyaml
+
+6. Add the following yaml to **[forj-config]::runtime_project / files / hiera / layouts / <node>.yaml** files.
+   If you are setting up custom certs for **review** and **ci** nodes, then you will update the follwing two files:
+
+   =============================================   ===============
+   Directory                                       file           
+   =============================================   ===============
+   /modules/runtime_project/files/hiera/layouts    review.yaml
+   /modules/runtime_project/files/hiera/layouts    ci.yaml
+   =============================================   ===============
+
+
+   - Add another class to classes: array.
+   - Set the ssl_*_contents sections to the class param values.
+   
+   review.yaml contents:
+
+   .. sourcecode:: yaml
+
+      classes:
+        - custom_certs::review_sslparams
+      
+      # ...
+      
+      # these will be automatically created if we pass them in empty.
+      cdk_project::gerrit::ssl_cert_file_contents:           "%{::custom_certs::review_sslparams::ssl_cert_file_contents}"
+      cdk_project::gerrit::ssl_key_file_contents:            "%{::custom_certs::review_sslparams::ssl_key_file_contents}"
+      cdk_project::gerrit::ssl_chain_file_contents:          "%{::custom_certs::review_sslparams::ssl_chain_file_contents}"
+      
+      # ...
+
+   ci.yaml contents:
+
+   .. sourcecode:: yaml
+
+      classes:
+        - custom_certs::ci_sslparams
+      
+      # ...
+      
+      # these will be automatically created if we pass them in empty.
+      cdk_project::jenkins::ssl_cert_file_contents:   "%{::custom_certs::ci_sslparams::ssl_cert_file_contents}"
+      cdk_project::jenkins::ssl_key_file_contents:    "%{::custom_certs::ci_sslparams::ssl_key_file_contents}"
+      cdk_project::jenkins::ssl_chain_file_contents:  "%{::custom_certs::ci_sslparams::ssl_chain_file_contents}"
+      
+      # ...
+
+7. Execute puppet apply commands as root on **maestro**, **ci**, and **review** nodes in that order.
+   Connect to the maestro node and run these commands:
+
+   .. sourcecode:: shell
+   
+      $ sudo -i
+      $ puppet agent -t
+      $ salt -E '(ci|review).*' cmd.run "/usr/bin/puppet agent -t"
+ 
+8. If certs don't imediately install, you can also restart apache services on each node:
+
+   .. sourcecode:: shell
+   
+      $ salt -E '(ci|review).*' cmd.run "service apache2 restart"
+
 
 .. _redstone-blueprint-faq:
 
