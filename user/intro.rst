@@ -6,7 +6,7 @@ Organization
 Forj is combination of 2 components:
 
 * :term:`Maestro`. Maestro's code is managed in :term:`Forj's forge`, and published to Github under `forj/maestro <https://github.com/forj/maestro>`_.
-* :term:`Blueprint` (s). Read by Maestro to install a :term:`forge`. Those blueprints are exposed in Forj's catalog, developed in :term:`Forj's forge`, and published to Github under `forj <https://github.com/forj/>`_. There is one GIT repository per blueprint. 
+* :term:`Blueprint` (s). Read by Maestro to install a :term:`forge`. Those blueprints are exposed in Forj's catalog, developed in :term:`Forj's forge`, and published to Github under `forj <https://github.com/forj-oss/>`_. There is one GIT repository per blueprint. 
 
 
 Philosophy
