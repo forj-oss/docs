@@ -42,7 +42,7 @@ In its current version, the Redstone blueprint contains the following features:
 	* Create open commits that can be reviewed with the team and gated for change before they hit master.
 	* Tag and release changes when they are ready for testing or production.
 	* Mark commits as work in progress or abandon revert old changes.
-	* Create new gerrit projects and aclâ€™s managed from source in forj-config project.
+	* Create new gerrit projects and acl’s managed from source in forj-config project.
 * Jenkins/Zuul integration
 	* Create zuul macros to automate common build task, or re-use pre-existing openstack macros included in the pre-configured forj-config project.
 	* Create automatic Jenkins jobs so that your team no longer manages Jenkins setup on Jenkins master, all configuration is managed as source in forj-config git project.
@@ -53,7 +53,7 @@ In its current version, the Redstone blueprint contains the following features:
 * Pastebin integration
 	* Collaborate with team mates with code snippets and log pasting for troubleshooting defects.
 * Defect tracking
-	* Mark gerrit changes with defect idâ€™s to link to your defect system with Launchpad or HP Agile Manager
+	* Mark gerrit changes with defect id’s to link to your defect system with Launchpad or HP Agile Manager
 
 Project Management
 ------------------
@@ -706,4 +706,4 @@ FAQ
     a new one will be created.
 
 
-.. [1] The OpenStackÂ™ Word Mark and OpenStack Logo are either registered trademarks/service marks or trademarks/service marks of the OpenStack Foundation, in the United States and other countries and are used with the OpenStack Foundation's permission. We are not affiliated with, endorsed or sponsored by the OpenStack Foundation, or the OpenStack community.
+.. [1] The OpenStack Word Mark and OpenStack Logo are either registered trademarks/service marks or trademarks/service marks of the OpenStack Foundation, in the United States and other countries and are used with the OpenStack Foundation's permission. We are not affiliated with, endorsed or sponsored by the OpenStack Foundation, or the OpenStack community.
