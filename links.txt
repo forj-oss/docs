@@ -10,3 +10,4 @@
 .. _Hewlett-Pacakard Helion Development Environment: https://docs.hpcloud.com/apaas/
 .. _ActiveState Stackato: http://www.activestate.com/stackato
 .. _CloudFoundry: http://docs.cloudfoundry.org/
+.. _Forj CLI: https://github.com/forj-oss/cli
