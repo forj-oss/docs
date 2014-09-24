@@ -26,7 +26,13 @@ Tools and features
 ------------------
 Very high level, the Redstone flow looks like this:
 
-.. image:: /img/redstone.gif
+.. only:: html
+
+  .. image:: /img/redstone_flow.gif
+
+.. only:: pdf
+
+  .. image:: /img/redstone_flow.png
 
 In its current version, the Redstone blueprint contains the following features:
 
@@ -277,7 +283,7 @@ If you are having problems with this configuration, you can try these steps to f
     2. A common problem is an empty IP address, just make sure that **exim_config::utils** in classes is located **before** gerrit class.
     3. Check if the port 25 is open on maestro server:
 
-    .. sourcecode:: shell
+    .. sourcecode:: console
 
             $ nc -v 10.0.0.90 smtp
             Connection to 10.0.0.90 25 port [tcp/smtp] succeeded!
@@ -289,13 +295,13 @@ If you are having problems with this configuration, you can try these steps to f
 2. Check if exim was correctly configured in maestro.
     1. Try to send a test email to check if the external smtp server was configured correctly:
 
-     .. sourcecode:: shell
+     .. sourcecode:: console
 
         $ echo "Test email " | mail -s "test external" <email_address@my.com>
 
     2. If you didn't receive the mail you can test changing the parameters manually in exim config file
 
-     .. sourcecode:: shell
+     .. sourcecode:: console
 
         $ service exim4 stop
         $ vim /etc/exim4/exim4.conf
@@ -303,20 +309,20 @@ If you are having problems with this configuration, you can try these steps to f
 
     3. As a alternative you can use a terminal email client to make further tests.
 
-     .. sourcecode:: shell
+     .. sourcecode:: console
 
         $ apt-get install mutt
         $ vim ~/.muttrc
 
      and add the following line:
 
-     .. sourcecode:: shell
+     .. sourcecode:: console
 
         set smtp_url = "smtp://smtp.sendgrid.net:587"
 
      try to send a test email
 
-     .. sourcecode:: shell
+     .. sourcecode:: console
 
        echo "Test email " | mutt -s "test external" email_address@my.com
 
@@ -489,7 +495,7 @@ projects and gates still applies here.
 
    Example:
 
-   .. sourcecode:: shell
+   .. sourcecode:: console
    
       $ openssl genrsa -passout pass:secretpass -des3 -out review.yourdomain.com.key 2048
       $ openssl req -new -key review.yourdomain.com.key -out review.yourdomain.com.csr    
@@ -594,7 +600,7 @@ projects and gates still applies here.
 
    **ssh to maestro node**:
    
-   .. sourcecode:: shell
+   .. sourcecode:: console
    
       $ sudo -i
       $ cd /etc/puppet/secure
@@ -649,7 +655,7 @@ projects and gates still applies here.
 7. Execute puppet apply commands as root on **maestro**, **ci**, and **review** nodes in that order.
    Connect to the maestro node and run these commands:
 
-   .. sourcecode:: shell
+   .. sourcecode:: console
    
       $ sudo -i
       $ puppet agent -t
@@ -657,7 +663,7 @@ projects and gates still applies here.
  
 8. If certs don't imediately install, you can also restart apache services on each node:
 
-   .. sourcecode:: shell
+   .. sourcecode:: console
    
       $ salt -E '(ci|review).*' cmd.run "service apache2 restart"
 

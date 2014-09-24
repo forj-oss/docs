@@ -11,3 +11,4 @@
 .. _ActiveState Stackato: http://www.activestate.com/stackato
 .. _CloudFoundry: http://docs.cloudfoundry.org/
 .. _Forj CLI: https://github.com/forj-oss/cli
+.. _DCO: http://docs.forj.io/page/dev/dco.html

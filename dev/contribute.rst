@@ -47,7 +47,7 @@ The Project uses well known tools and processes to make contributing and communi
 
 These resources include this website, our own review system based on Gerrit, GitHub to publish code, a bug tracker, `mailing list`_ and an `IRC`_ channel. 
 
-A mechanism inspired by the well known Linux :ref:`"Developer Certificate of Origin (DCO)" <dco>` is used to sign off contributions. 
+A mechanism inspired by the well known Linux "Developer Certificate of Origin (`DCO`_)" is used to sign off contributions. 
 
 Everyone contributing to the Forj Project or participating on the `IRC`_, `mailing list`_ or other resources provided by the Project must abide by the `Community Guidelines`_. While creative ideas and respectful debates on topics are encouraged, the Forj Project reserves the right to act as needed to protect the integrity of the Project, including the removal of any posts deemed inappropriate or offensive.
 
@@ -84,7 +84,7 @@ The Contribution Process
 
 * Take a look at our `issue list`_ and consider submitting a patch. You may have a look at our "fruits" issues (from the low hanging kind) to get started.
 * For big changes, the contributor communicates with the Project via mailing lists or `IRC`_ or `Issue List`_ to get feedback before submitting code
-* Contributor agrees to the :ref:`"DCO" <dco>` - see the link for format and meaning
+* Contributor agrees to the `dco`_ - see the link for format and meaning
 * Contributor adds necessary Apache v2.0 header for each new file contributed
 
 .. sourcecode:: console
@@ -102,7 +102,7 @@ The Contribution Process
 		limitations under the License.
 
 * Contributor uses the Gerrit workflow to submit the code for review
-* Maintainer conducts code review, verifies :ref:`"DCO signoff" <dco>` and Apache v2.0 license header (this is automated), runs tests and asks for adjustments from contributor as necessary
+* Maintainer conducts code review, verifies "`DCO`_ signoff" and Apache v2.0 license header (this is automated), runs tests and asks for adjustments from contributor as necessary
 * Maintainer merges the commits into the repo
 
 Contributing code

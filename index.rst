@@ -49,6 +49,7 @@ Developer guide
 
    dev/intro
    dev/contribute
+   dev/dco
    dev/architecture
    dev/gardener
    dev/devenv
