@@ -19,7 +19,7 @@ Check this tutorial which shows Redstone in action:
 
 |ImageLink|_
 
-.. |ImageLink| image:: /img/redstone.tutorial.jpg
+.. |ImageLink| image:: /img/redstone_tutorial.jpg
 .. _ImageLink: https://www.youtube.com/watch?v=IUwMFzOALmU
 
 Tools and features
