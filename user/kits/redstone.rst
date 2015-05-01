@@ -247,6 +247,7 @@ In order to gerrit send email notifications you need to configure it first.
           exim_config::smtp_require_auth: true
           exim_config::smtp_username: 'YOUR_USER'
           exim_config::smtp_password: 'YOUR_PASSWORD'
+          exim_config::queue_smtp_domains: 'localhost.org'
           exim_config::relay_from_hosts:
             - '127.0.0.1'
             - "%{::exim_config::utils::review_ip}"
